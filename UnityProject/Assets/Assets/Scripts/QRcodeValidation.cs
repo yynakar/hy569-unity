@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
+using System.Collections.Generic;
+using System.Linq;
 
 public class QRcodeValidation : MonoBehaviour
 {
@@ -10,17 +12,21 @@ public class QRcodeValidation : MonoBehaviour
     [SerializeField]
     bool CorrectRiddle;
 
-    [SerializeField]
     [Tooltip("Reference Image Library")]
-    XRReferenceImageLibrary m_ImageLibrary;
+    IReferenceImageLibrary m_ImageLibrary;
 
     [SerializeField]
     [Tooltip("Choose prefab to be spawned when QR is found")]
     GameObject prefab;
 
+    [SerializeField]
+    [Tooltip("to be replaced")]
+    GameObject prefab2;
+
     void Awake()
     {
         m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
+        m_ImageLibrary = GetComponent<ARTrackedImageManager>().referenceLibrary;
     }
     //tin lib thelo na tin kano modify at runtime?
     //ta qrs otan fortonetai to paixnidi tha pernane stin unity
@@ -61,14 +67,23 @@ public class QRcodeValidation : MonoBehaviour
     //Get which images tracked
     void OnEnable()
     {
-        m_TrackedImageManager.trackedImagesChanged += ImageChangedHandle;
+        m_TrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
     }
 
     void OnDisable()
     {
-        m_TrackedImageManager.trackedImagesChanged -= ImageChangedHandle;
+        m_TrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
+    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs e)
+    {
+        foreach (var trackedImage in e.added)
+        {
+            Debug.Log($"Tracked image detected: {trackedImage.referenceImage.name} with size: {trackedImage.size}");
+        }
 
+        UpdateTrackedImages(e.added);
+        UpdateTrackedImages(e.updated);
+    }
     // Method handling found/lost tracked images.
     void ImageChangedHandle(ARTrackedImagesChangedEventArgs imgChangedArgs)
     {
@@ -82,6 +97,31 @@ public class QRcodeValidation : MonoBehaviour
             //loop
             //sosto k lathos apotelesma
         }
+    }
+    private void UpdateTrackedImages(IEnumerable<ARTrackedImage> trackedImages)
+    {
+        // If the same image (ReferenceImageName)
+        var trackedImage =
+            trackedImages.FirstOrDefault(x => x.referenceImage.name == "qr2");
+        var trackedImage2 =
+            trackedImages.FirstOrDefault(x => x.referenceImage.name == "qr1");
+  
+
+        if (trackedImage)
+        {
+
+        Instantiate(prefab2);
+        }
+        if (trackedImage2)
+        {
+        Instantiate(prefab);
+
+        }
+        //if (trackedImage.trackingState != TrackingState.None)
+        //{
+        //    var trackedImageTransform = trackedImage.transform;
+        //    transform.SetPositionAndRotation(trackedImageTransform.position, trackedImageTransform.rotation);
+        //}
     }
 
 }
