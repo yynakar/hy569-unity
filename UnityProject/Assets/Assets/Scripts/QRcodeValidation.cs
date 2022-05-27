@@ -12,6 +12,11 @@ public class QRcodeValidation : MonoBehaviour
     [SerializeField]
     bool CorrectRiddle;
 
+    [SerializeField]
+    GameObject CorrectMsg;
+    [SerializeField]
+    GameObject WrongMsg;
+
     [Tooltip("Reference Image Library")]
     IReferenceImageLibrary m_ImageLibrary;
 
@@ -109,19 +114,17 @@ public class QRcodeValidation : MonoBehaviour
 
         if (trackedImage)
         {
+            Instantiate(prefab2);
+            if(CorrectRiddle)
+                CorrectMsg.SetActive(true);
 
-        Instantiate(prefab2);
         }
         if (trackedImage2)
         {
-        Instantiate(prefab);
-
+            Instantiate(prefab);
+            if (!CorrectRiddle)
+                WrongMsg.SetActive(true);
         }
-        //if (trackedImage.trackingState != TrackingState.None)
-        //{
-        //    var trackedImageTransform = trackedImage.transform;
-        //    transform.SetPositionAndRotation(trackedImageTransform.position, trackedImageTransform.rotation);
-        //}
     }
 
 }
