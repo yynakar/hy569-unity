@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using TMPro;
 public class Login : MonoBehaviour
 {
-    public TextMesh inputUsername;
+    public TMP_InputField inputUsername;
     public InputField inputPassword;
     
     IEnumerator ieLogin()
