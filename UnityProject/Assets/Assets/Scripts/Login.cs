@@ -6,8 +6,9 @@ using UnityEngine.UI;
 using TMPro;
 public class Login : MonoBehaviour
 {
-    public TMP_InputField inputUsername;
+    public InputField inputUsername;
     public InputField inputPassword;
+    public Text response;
     
     IEnumerator ieLogin()
     {
@@ -15,12 +16,17 @@ public class Login : MonoBehaviour
         dataForm.AddField("userName", inputUsername.text);
         dataForm.AddField("passWord", inputPassword.text);
         string uri = "http://arthunt.epizy.com/Login.php";
-        UnityWebRequest webRequest = UnityWebRequest.Post(uri,dataForm);
+        // System.Net.Http.HttpClient
+        //HttpClient
+        System.Net.Http.HttpClient webRequest = new System.Net.Http.HttpClient();
+        webRequest.PostAsync(uri, dataForm);
         webRequest.chunkedTransfer = false;
 
         yield return webRequest.SendWebRequest();
 
-        Debug.Log(webRequest.downloadHandler.text);
+        //Debug.Log(webRequest.downloadHandler.text);
+        //response.text = "Res: " + webRequest.downloadHandler.text +".";
+        response.text = webRequest.error;
 
     }
 
