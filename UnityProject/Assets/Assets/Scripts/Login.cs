@@ -11,6 +11,7 @@ public class Login : MonoBehaviour
     public TMP_InputField inputPassword;
     public Text DebugText;
     public GameObject Dashboard;
+    public GameObject BadAuthMesg;
 
     [NonSerialized]
     public string LoginResponseUsername;
@@ -35,7 +36,7 @@ public class Login : MonoBehaviour
         }
         else
         {
-            DebugText.text = "Bad luck";
+            Instantiate(BadAuthMesg);
         }
     }
 
