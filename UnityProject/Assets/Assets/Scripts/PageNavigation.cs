@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class PageNavigation : MonoBehaviour
 {
-  
-
-    public void GoToScanRiddlePage(GameObject ScanRiddlePage)
+    public GameObject ScanRiddlePage;
+    public void GoToScanRiddlePage()
     {
+        Instantiate(ScanRiddlePage);
         gameObject.SetActive(false);
-        ScanRiddlePage.SetActive(true);
-    }
-
-   
+    }   
 }

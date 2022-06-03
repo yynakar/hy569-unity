@@ -202,7 +202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361, y: -751}
+  m_AnchoredPosition: {x: 361, y: -880.7}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7982486916995420634
@@ -286,7 +286,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6430399507173595039}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 684552829958038799}
+        m_TargetAssemblyTypeName: PageNavigation, Assembly-CSharp
+        m_MethodName: GoToScanRiddlePage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &2928779700700418052
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScanRiddlePage: {fileID: 1917053936158837373, guid: 88b694423c03d6540b73c5a23c998009, type: 3}
-  AuthMessage: {fileID: 729913194707018546, guid: 56ab1af5a8d9b194d86c6faa4912b89f, type: 3}
 --- !u!1 &3602357398442826387
 GameObject:
   m_ObjectHideFlags: 0
