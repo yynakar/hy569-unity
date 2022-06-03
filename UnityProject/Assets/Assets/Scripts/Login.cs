@@ -9,6 +9,11 @@ public class Login : MonoBehaviour
 {
     public TMP_InputField inputUsername;
     public TMP_InputField inputPassword;
+    public Text DebugText;
+    public GameObject Dashboard;
+
+    [NonSerialized]
+    public string LoginResponseUsername;
     IEnumerator ieLogin()
     {
         WWWForm dataForm = new WWWForm();
@@ -22,9 +27,16 @@ public class Login : MonoBehaviour
 
         yield return webRequest.SendWebRequest();
 
-        //Debug.Log(webRequest.downloadHandler.text);
-       //response.text = "Res: " + webRequest.downloadHandler.text + ".";
-
+        LoginResponseUsername = webRequest.downloadHandler.text;
+        if (LoginResponseUsername != "0")
+        {
+            gameObject.SetActive(false);
+            Instantiate(Dashboard);
+        }
+        else
+        {
+            DebugText.text = "Bad luck";
+        }
     }
 
     public void login()

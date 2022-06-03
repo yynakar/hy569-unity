@@ -1607,6 +1607,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputUsername: {fileID: 7858676249842474485}
   inputPassword: {fileID: 3191516384757762845}
+  DebugText: {fileID: 3858602321676083866}
+  Dashboard: {fileID: 2242858246299889047, guid: 00a29b25b210a624e853cc893c0a9f1f, type: 3}
+  SessionUserID: 0
 --- !u!1 &4444462849299810189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2105997861725814483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1796,7 +1799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.43130484, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1805,7 +1808,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 32
+    m_FontSize: 55
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
