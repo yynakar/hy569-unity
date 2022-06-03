@@ -1,13 +1,14 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using TMPro;
 public class Login : MonoBehaviour
 {
-    public InputField inputUsername;
-    public InputField inputPassword;
-    public Text response;
+    public TMP_InputField inputUsername;
+    public TMP_InputField inputPassword;
     IEnumerator ieLogin()
     {
         WWWForm dataForm = new WWWForm();
@@ -22,7 +23,7 @@ public class Login : MonoBehaviour
         yield return webRequest.SendWebRequest();
 
         //Debug.Log(webRequest.downloadHandler.text);
-        response.text = "Res: " + webRequest.downloadHandler.text + ".";
+       //response.text = "Res: " + webRequest.downloadHandler.text + ".";
 
     }
 
