@@ -348,9 +348,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoginPage
       objectReference: {fileID: 0}
-    - target: {fileID: 4417771741460533370, guid: 3b7e74ebc499e3c4e85ed0b887ef8f4e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b7e74ebc499e3c4e85ed0b887ef8f4e, type: 3}
