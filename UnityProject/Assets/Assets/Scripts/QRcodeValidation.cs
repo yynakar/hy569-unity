@@ -8,6 +8,7 @@ using System.Linq;
 public class QRcodeValidation : MonoBehaviour
 {
     ARTrackedImageManager m_TrackedImageManager;
+    IReferenceImageLibrary m_ImageLibrary;
 
     [SerializeField]
     bool CorrectRiddle;
@@ -16,9 +17,6 @@ public class QRcodeValidation : MonoBehaviour
     GameObject CorrectMsg;
     [SerializeField]
     GameObject WrongMsg;
-
-    [Tooltip("Reference Image Library")]
-    IReferenceImageLibrary m_ImageLibrary;
 
     [SerializeField]
     [Tooltip("Choose prefab to be spawned when QR is found")]
@@ -30,8 +28,8 @@ public class QRcodeValidation : MonoBehaviour
 
     void Awake()
     {
-        m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
-        m_ImageLibrary = GetComponent<ARTrackedImageManager>().referenceLibrary;
+        m_TrackedImageManager = GameObject.Find("AR Foundation/AR Session Origin").GetComponent<ARTrackedImageManager>();
+        m_ImageLibrary = m_TrackedImageManager.referenceLibrary;
     }
     //tin lib thelo na tin kano modify at runtime?
     //ta qrs otan fortonetai to paixnidi tha pernane stin unity
@@ -81,10 +79,10 @@ public class QRcodeValidation : MonoBehaviour
     }
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs e)
     {
-        foreach (var trackedImage in e.added)
-        {
-            Debug.Log($"Tracked image detected: {trackedImage.referenceImage.name} with size: {trackedImage.size}");
-        }
+        //foreach (var trackedImage in e.added)
+        //{
+        //    Debug.Log($"Tracked image detected: {trackedImage.referenceImage.name} with size: {trackedImage.size}");
+        //}
 
         UpdateTrackedImages(e.added);
         UpdateTrackedImages(e.updated);
@@ -114,16 +112,16 @@ public class QRcodeValidation : MonoBehaviour
 
         if (trackedImage)
         {
-            Instantiate(prefab2);
-            if(CorrectRiddle)
-                CorrectMsg.SetActive(true);
+
+            //check apo tin vasi an einai correct
+            CorrectMsg.SetActive(true);
+            WrongMsg.SetActive(false);
 
         }
         if (trackedImage2)
         {
-            Instantiate(prefab);
-            if (!CorrectRiddle)
-                WrongMsg.SetActive(true);
+            WrongMsg.SetActive(true);
+            CorrectMsg.SetActive(false);
         }
     }
 
