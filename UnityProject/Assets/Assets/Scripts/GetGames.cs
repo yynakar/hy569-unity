@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 
 public class GetGames : MonoBehaviour
 {
+    public GameObject GameContainer;
+    public GameObject GameTemplate;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,9 @@ public class GetGames : MonoBehaviour
                         if (games[i] != "")
                         {
                             Debug.Log("Current game:" + games[i]);
+                            GameObject ga = (GameObject)Instantiate(GameTemplate);
+                            ga.transform.SetParent(GameContainer.transform);
+                            ga.GetComponent<GameName>().game.text = games[i];
                         }                     
                     }
 
