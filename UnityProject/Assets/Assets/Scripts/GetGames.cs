@@ -7,9 +7,13 @@ public class GetGames : MonoBehaviour
 {
     public GameObject GameContainer;
     public GameObject GameTemplate;
+
+    string loginResponseUsername;
+
     // Start is called before the first frame update
     void Start()
     {
+     //   loginResponseUsername = GameObject.Find("LoginPage").GetComponent<Login>().LoginResponseUsername;
         //na mpei to usename kapws edw
         StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
     }
@@ -45,10 +49,12 @@ public class GetGames : MonoBehaviour
                             Debug.Log("Current game:" + games[i]);
                             GameObject ga = (GameObject)Instantiate(GameTemplate);
                             ga.transform.SetParent(GameContainer.transform);
+                            ga.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
                             ga.GetComponent<GameName>().game.text = games[i];
+                            ga.name = "GameName"+games[i];
                         }                     
                     }
-
+                    GameTemplate.SetActive(false);
                     break;
             }
         }
