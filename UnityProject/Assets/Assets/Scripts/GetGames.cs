@@ -15,8 +15,8 @@ public class GetGames : MonoBehaviour
     {
         loginResponseUsername = GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername;
         //na mpei to usename kapws edw
-        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
-        //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
+        //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
+        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
         //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=kate"));
     }
 
@@ -50,7 +50,7 @@ public class GetGames : MonoBehaviour
                             GameObject ga = Instantiate(GameTemplate,GameContainer.transform);
                             ga.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
                             ga.GetComponent<GameName>().game.text = i;
-                            ga.name = "GameName_" + i;
+                            ga.name = i;
                         }
                     }
                     GameTemplate.SetActive(false);
