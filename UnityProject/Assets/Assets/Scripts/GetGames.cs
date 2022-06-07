@@ -13,9 +13,11 @@ public class GetGames : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     //   loginResponseUsername = GameObject.Find("LoginPage").GetComponent<Login>().LoginResponseUsername;
+        loginResponseUsername = GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername;
         //na mpei to usename kapws edw
-        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
+        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
+        //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
+        //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=kate"));
     }
 
     IEnumerator GetRequest(string uri)
@@ -38,21 +40,18 @@ public class GetGames : MonoBehaviour
                     Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
                     break;
                 case UnityWebRequest.Result.Success:
-                    //Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
 
                     string rawResponse = webRequest.downloadHandler.text;
                     string[] games = rawResponse.Split('*');
-                    for (int i = 0; i < games.Length; i++)
+                    foreach(string i in games)
                     {
-                        if (games[i] != "")
+                        if (i != "")
                         {
-                            Debug.Log("Current game:" + games[i]);
-                            GameObject ga = (GameObject)Instantiate(GameTemplate);
-                            ga.transform.SetParent(GameContainer.transform);
+                            GameObject ga = Instantiate(GameTemplate,GameContainer.transform);
                             ga.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
-                            ga.GetComponent<GameName>().game.text = games[i];
-                            ga.name = "GameName"+games[i];
-                        }                     
+                            ga.GetComponent<GameName>().game.text = i;
+                            ga.name = "GameName_" + i;
+                        }
                     }
                     GameTemplate.SetActive(false);
                     break;

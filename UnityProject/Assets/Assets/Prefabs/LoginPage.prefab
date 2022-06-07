@@ -1155,7 +1155,7 @@ MonoBehaviour:
   inputUsername: {fileID: 7858676249842474485}
   inputPassword: {fileID: 3191516384757762845}
   DebugText: {fileID: 6689862536191420506}
-  Dashboard: {fileID: 2242858246299889047, guid: 00a29b25b210a624e853cc893c0a9f1f, type: 3}
+  Dashboard: {fileID: 4281172456742291998, guid: 915fa803e18f0994b8b3a862ddf9eb63, type: 3}
   BadAuthMesg: {fileID: 729913194707018546, guid: 56ab1af5a8d9b194d86c6faa4912b89f, type: 3}
 --- !u!1 &4708040487625944091
 GameObject:
@@ -2882,7 +2882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 517, y: -1928.9999}
+  m_AnchoredPosition: {x: 654, y: -1928.9999}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8072324195475066410

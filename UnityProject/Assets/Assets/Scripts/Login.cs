@@ -34,8 +34,8 @@ public class Login : MonoBehaviour
         if (LoginResponseUsername != "0")
         {
             Instantiate(Dashboard);
+            GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername = LoginResponseUsername;
             gameObject.SetActive(false);
-            // DebugText.text = LoginResponseUsername;
         }
         else
         {
