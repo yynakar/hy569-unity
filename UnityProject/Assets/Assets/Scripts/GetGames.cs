@@ -14,9 +14,9 @@ public class GetGames : MonoBehaviour
     void Start()
     {
         loginResponseUsername = GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername;
-        //na mpei to usename kapws edw
-        //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
-        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
+        
+        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
+        //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
         //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=kate"));
     }
 
