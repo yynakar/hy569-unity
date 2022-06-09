@@ -108,6 +108,8 @@ public class QRcodeValidation : MonoBehaviour
             trackedImages.FirstOrDefault(x => x.referenceImage.name == "qr2");
         var trackedImage2 =
             trackedImages.FirstOrDefault(x => x.referenceImage.name == "qr1");
+        var trackedImage3 =
+            trackedImages.FirstOrDefault(x => x.referenceImage.name == "testQRFromServer");
   
 
         if (trackedImage)
@@ -123,6 +125,13 @@ public class QRcodeValidation : MonoBehaviour
             WrongMsg.SetActive(true);
             CorrectMsg.SetActive(false);
         }
+        if (trackedImage3)
+        {
+            CorrectMsg.SetActive(true);
+            WrongMsg.SetActive(true);
+
+        }
+
     }
 
 }

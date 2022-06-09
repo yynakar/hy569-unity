@@ -35,3 +35,13 @@ MonoBehaviour:
     m_SpecifySize: 0
     m_Name: qr2
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5359913844663581166
+      m_GuidHigh: 9207907688808290229
+    m_SerializedTextureGuid:
+      m_GuidLow: 13246444185865725649
+      m_GuidHigh: 3040089739262763227
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: testQRFromServer
+    m_Texture: {fileID: 0}
