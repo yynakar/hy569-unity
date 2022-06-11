@@ -6,22 +6,19 @@ public class SendGameName : MonoBehaviour
 {
     public string GameName;
     int GameID;
-    int TeamID;
+    string TeamName;
 
     public void SelectGame(GameObject gameName)
     {
         GameName = gameName.ToString().Replace(" (UnityEngine.GameObject)", "");
-        //GameName = "sdafghjk.m, auga";
         StartCoroutine(PostGameName());       
     }
 
     IEnumerator PostGameName()
     {
         WWWForm dataForm = new WWWForm();
-        dataForm.AddField("GameName", GameName);
-        //dataForm.AddField("name", "sdafghjk.m, auga");
-        dataForm.AddField("user", "Maria");
-        //dataForm.AddField("user", GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername);
+        dataForm.AddField("name", GameName);
+        dataForm.AddField("user", GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername);
        
         string uri = "https://arthunt.000webhostapp.com/ReturnThuntId.php";
 
@@ -38,12 +35,9 @@ public class SendGameName : MonoBehaviour
         {
             GameID = int.Parse(values[1]);
             GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID = GameID;
-            Debug.Log("GameID=" + values[1]);
 
-
-            TeamID = int.Parse(values[1]);
-            GameObject.Find("DataManager").GetComponent<DataManagement>().TeamID = TeamID;
-            Debug.Log("TeamID=" + values[1]);
+            TeamName = values[3];
+            GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName = TeamName;
         }
         else
         {

@@ -14,9 +14,9 @@ public class GetGames : MonoBehaviour
     void Start()
     {
         loginResponseUsername = GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername;
-        
-        //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
-        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
+       
+        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
+       //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
         //For debug:
         //GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername = "Maria";
         //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=kate"));
@@ -31,7 +31,6 @@ public class GetGames : MonoBehaviour
 
             string[] pages = uri.Split('/');
             int page = pages.Length - 1;
-
             switch (webRequest.result)
             {
                 case UnityWebRequest.Result.ConnectionError:
@@ -42,7 +41,6 @@ public class GetGames : MonoBehaviour
                     Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
                     break;
                 case UnityWebRequest.Result.Success:
-
                     string rawResponse = webRequest.downloadHandler.text;
                     string[] games = rawResponse.Split('*');
                     foreach(string i in games)

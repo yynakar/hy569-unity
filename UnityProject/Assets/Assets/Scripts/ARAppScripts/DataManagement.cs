@@ -9,5 +9,5 @@ public class DataManagement : MonoBehaviour
     [HideInInspector]
     public int TreasureHuntID;
     [HideInInspector]
-    public int TeamID;
+    public string TeamName;
 }

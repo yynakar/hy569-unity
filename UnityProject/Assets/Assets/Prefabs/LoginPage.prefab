@@ -1155,7 +1155,7 @@ MonoBehaviour:
   inputUsername: {fileID: 7858676249842474485}
   inputPassword: {fileID: 3191516384757762845}
   DebugText: {fileID: 6689862536191420506}
-  Dashboard: {fileID: 4281172456742291998, guid: 915fa803e18f0994b8b3a862ddf9eb63, type: 3}
+  Dashboard: {fileID: 7359825430592239172, guid: 915fa803e18f0994b8b3a862ddf9eb63, type: 3}
   BadAuthMesg: {fileID: 729913194707018546, guid: 56ab1af5a8d9b194d86c6faa4912b89f, type: 3}
 --- !u!1 &4708040487625944091
 GameObject:
