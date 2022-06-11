@@ -18,8 +18,15 @@ public class GetRiddlesOfThunt : MonoBehaviour
 
     IEnumerator GetRequest(string uri)
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
-        {
+        
+            WWWForm dataForm = new WWWForm();
+            dataForm.AddField("thunt", "20");//bale sto 20 to global thing
+
+
+            UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
+            webRequest.chunkedTransfer = false;
+
+
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -57,6 +64,6 @@ public class GetRiddlesOfThunt : MonoBehaviour
 
                     break;
             }
-        }
+       
     }
 }
