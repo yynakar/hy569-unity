@@ -5,4 +5,5 @@ using UnityEngine;
 public class DataManagement : MonoBehaviour
 {
     public string LoginResponseUsername;
+    public int TreasureHunt;
 }

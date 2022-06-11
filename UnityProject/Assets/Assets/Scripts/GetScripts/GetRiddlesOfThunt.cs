@@ -7,12 +7,13 @@ public class GetRiddlesOfThunt : MonoBehaviour
 {
     public List<Riddle> riddles= new List<Riddle>();
 
-    string loginResponseUsername;
+    int treasureHunt;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        treasureHunt = GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHunt;
+        Debug.Log(treasureHunt);
         StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/ReturnRiddleThunt.php"));
     } 
 
@@ -20,7 +21,7 @@ public class GetRiddlesOfThunt : MonoBehaviour
     {
         
             WWWForm dataForm = new WWWForm();
-            dataForm.AddField("thunt", "20");//bale sto 20 to global thing
+            dataForm.AddField("thunt", treasureHunt);//bale sto 20 to global thing
 
 
             UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
