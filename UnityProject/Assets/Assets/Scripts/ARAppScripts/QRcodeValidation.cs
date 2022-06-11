@@ -31,11 +31,28 @@ public class QRcodeValidation : MonoBehaviour
         m_TrackedImageManager = GameObject.Find("AR Foundation/AR Session Origin").GetComponent<ARTrackedImageManager>();
         m_ImageLibrary = m_TrackedImageManager.referenceLibrary;
     }
-    //tin lib thelo na tin kano modify at runtime?
-    //ta qrs otan fortonetai to paixnidi tha pernane stin unity
-    //isos xreiaste runtime n mpoun
+    
     private void Update()
     {
+        //Shall see
+        XRReferenceImageLibrary serializedLibrary = (XRReferenceImageLibrary)m_ImageLibrary;
+        RuntimeReferenceImageLibrary runtimeLibrary = m_TrackedImageManager.CreateRuntimeLibrary(serializedLibrary);
+
+        if (m_TrackedImageManager.referenceLibrary is MutableRuntimeReferenceImageLibrary mutableLibrary)
+        {
+            // use the mutableLibrary
+        }
+        if (m_TrackedImageManager.descriptor.supportsMutableLibrary)
+        {
+            // Mutable reference image libraries are supported
+            //edo theoritika ta vazo runtime
+            //use ScheduleAddImageJob.
+            //JobHandle when a job is complete
+
+            //Multiple add image jobs can be processed concurrently, and it is okay if the MutableRuntimeReferenceImageLibrary is currently being used for image tracking.
+
+
+        }
     }
 
     private void ValidateQRCode()
