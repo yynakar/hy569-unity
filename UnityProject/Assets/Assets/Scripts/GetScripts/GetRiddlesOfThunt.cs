@@ -12,7 +12,7 @@ public class GetRiddlesOfThunt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        treasureHunt = GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHunt;
+        treasureHunt = GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID;
         Debug.Log(treasureHunt);
         StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/ReturnRiddleThunt.php"));
     } 

@@ -6,39 +6,55 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using TMPro;
 
-public class ButtonBehavior : MonoBehaviour
+public class SendGameName : MonoBehaviour
 {
     string GameName;
-    public int GameID;
-   public void SelectGame(GameObject gameName)
+    int GameID;
+    int TeamID;
+
+    public void SelectGame(GameObject gameName)
     {
-        Debug.Log("button pressed: "+gameName.ToString().Replace(" (UnityEngine.GameObject)",""));
         GameName = gameName.ToString().Replace(" (UnityEngine.GameObject)", "");
+        StartCoroutine(PostGameName());
     }
 
-    IEnumerator ieLogin()
+    IEnumerator PostGameName()
     {
         WWWForm dataForm = new WWWForm();
         dataForm.AddField("GameName", GameName);
+        dataForm.AddField("UserName", GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername);
+
         string uri = "https://arthunt.000webhostapp.com/ReturnThuntId.php";
 
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
         webRequest.chunkedTransfer = false;
 
         yield return webRequest.SendWebRequest();
+        var returnedValues = webRequest.downloadHandler.text;//TreasureHunt*1*Team*1
 
-        GameID = int.Parse(webRequest.downloadHandler.text);
-        Debug.Log("edo1" + GameID);
+        string[] values = returnedValues.Split('*');
 
-        if (GameID != -1)
+        if (values[1] != "-1")
         {
-            GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHunt = GameID;
-            Debug.Log("edo2" + GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHunt);
-            //Dont know yet
+            GameID = int.Parse(values[1]);
+            GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID = GameID;
+            Debug.Log("GameID=" + values[1]);
         }
         else
         {
-            //Dont know yet
+            Debug.Log("not komple" + values[1]);
+            //minima lathous
+        }
+        if (values[3] != "-1")
+        {
+            TeamID = int.Parse(values[1]);
+            GameObject.Find("DataManager").GetComponent<DataManagement>().TeamID = TeamID;
+            Debug.Log("TeamID==" + values[1]);
+        }
+        else
+        {
+            Debug.Log("not komple" + values[3]);
+            //minima lathous
         }
     }
 }
