@@ -20,7 +20,7 @@ public class SendGameName : MonoBehaviour
         dataForm.AddField("name", GameName);
         dataForm.AddField("user", GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername);
        
-        string uri = "https://arthunt.000webhostapp.com/ReturnThuntId.php";
+        string uri = "https://arthunt.000webhostapp.com/ReturnThuntIdAndTeam.php";
 
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
         webRequest.chunkedTransfer = false;
