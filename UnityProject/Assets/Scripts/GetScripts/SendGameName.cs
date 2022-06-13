@@ -19,6 +19,7 @@ public class SendGameName : MonoBehaviour
     IEnumerator PostGameName()
     {
         WWWForm dataForm = new WWWForm();
+        GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName= GameName;
         dataForm.AddField("name", GameName);
         dataForm.AddField("user", GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername);
        
