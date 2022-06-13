@@ -14,12 +14,14 @@ public class SendGameName : MonoBehaviour
         StartCoroutine(PostGameName());
         Instantiate(Resources.Load("Prefabs/Dashboard") as GameObject);
         gameObject.transform.parent.gameObject.SetActive(false);
+        
     }
 
     IEnumerator PostGameName()
     {
         WWWForm dataForm = new WWWForm();
         dataForm.AddField("name", GameName);
+        GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName = GameName;
         dataForm.AddField("user", GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername);
        
         string uri = "https://arthunt.000webhostapp.com/ReturnThuntIdAndTeam.php";
