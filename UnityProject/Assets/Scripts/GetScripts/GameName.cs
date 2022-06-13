@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class TeamName : MonoBehaviour
+
+public class GameName : MonoBehaviour
 {
-    [SerializeField]
-    public TMP_Text Team;
+    public TMP_Text game;
     // Start is called before the first frame update
     void Start()
     {
-        Team.text = GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName;
+        
     }
 
-
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

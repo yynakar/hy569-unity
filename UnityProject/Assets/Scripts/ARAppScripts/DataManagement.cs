@@ -7,8 +7,6 @@ public class DataManagement : MonoBehaviour
     [HideInInspector]
     public string LoginResponseUsername;
     [HideInInspector]
-    public string TreasureHuntName;
-    [HideInInspector]
     public int TreasureHuntID;
     [HideInInspector]
     public string TeamName;
