@@ -11,7 +11,9 @@ public class SendGameName : MonoBehaviour
     public void SelectGame(GameObject gameName)
     {
         GameName = gameName.ToString().Replace(" (UnityEngine.GameObject)", "");
-        StartCoroutine(PostGameName());       
+        StartCoroutine(PostGameName());
+        Instantiate(Resources.Load("Prefabs/Dashboard") as GameObject);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
 
     IEnumerator PostGameName()

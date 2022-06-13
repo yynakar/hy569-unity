@@ -14,6 +14,7 @@ public class Solved : MonoBehaviour
         treasureHunt = 4;// GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID;
         team = 4;// GameObject.Find("DataManager").GetComponent<DataManagement>().TeamID;
         StartCoroutine(Solve("https://arthunt.000webhostapp.com/Solved.php?r=4"));
+        //auti tha kaleitai sto skanarismeno qr code
     }
 
     IEnumerator Solve(string uri)
