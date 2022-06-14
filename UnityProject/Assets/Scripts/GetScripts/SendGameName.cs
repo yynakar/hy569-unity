@@ -6,7 +6,7 @@ public class SendGameName : MonoBehaviour
 {
     public string GameName;
     int GameID;
-    string TeamName;
+    public string TeamName;
 
     public void SelectGame(GameObject gameName)
     {
