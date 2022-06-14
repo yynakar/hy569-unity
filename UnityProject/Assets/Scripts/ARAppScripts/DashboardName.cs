@@ -12,12 +12,5 @@ public class DashboardName : MonoBehaviour
     void Start()
     {
         THunt.text = GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName;
-        Team.text = GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

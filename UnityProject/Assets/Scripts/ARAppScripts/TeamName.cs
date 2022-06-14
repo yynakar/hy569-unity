@@ -10,7 +10,7 @@ public class TeamName : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Team.text = GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName;
+        //Team.text = GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName;
     }
 
 

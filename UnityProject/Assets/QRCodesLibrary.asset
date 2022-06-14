@@ -19,11 +19,11 @@ MonoBehaviour:
       m_GuidLow: 5047532790425627994
       m_GuidHigh: 12177021240155710880
     m_SerializedTextureGuid:
-      m_GuidLow: 6081102724304466560
-      m_GuidHigh: 12232533498032658074
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: qr1
+      m_GuidLow: 16056626024933251201
+      m_GuidHigh: 2482811659655196072
+    m_Size: {x: 0.01777778, y: 0.010000002}
+    m_SpecifySize: 1
+    m_Name: vase
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 4921477267722507363
@@ -31,8 +31,8 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 7981772943416878701
       m_GuidHigh: 16394159066612743625
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 0.01, y: 0.01}
+    m_SpecifySize: 1
     m_Name: qr2
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
@@ -41,7 +41,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 13246444185865725649
       m_GuidHigh: 3040089739262763227
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 0.01, y: 0.01}
+    m_SpecifySize: 1
     m_Name: testQRFromServer
     m_Texture: {fileID: 0}

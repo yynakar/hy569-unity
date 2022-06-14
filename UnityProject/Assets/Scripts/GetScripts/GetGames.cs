@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -15,8 +14,8 @@ public class GetGames : MonoBehaviour
     {
         loginResponseUsername = GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername;
        
-        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
-       //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Maria"));
+       //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
+       StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=Anna"));
         //For debug:
         //GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername = "Maria";
         //StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username=kate"));
@@ -42,6 +41,7 @@ public class GetGames : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.Success:
                     string rawResponse = webRequest.downloadHandler.text;
+                    Debug.Log("edo " + rawResponse);
                     string[] games = rawResponse.Split('*');
                     foreach(string i in games)
                     {

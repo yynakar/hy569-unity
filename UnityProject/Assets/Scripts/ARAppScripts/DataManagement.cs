@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DataManagement : MonoBehaviour
 {   
-    [HideInInspector]
+    //[HideInInspector]
     public string LoginResponseUsername;
     [HideInInspector]
     public int TreasureHuntID;
     [HideInInspector]
     public string TreasureHuntName;
-    [HideInInspector]
+    //[HideInInspector]
     public string TeamName;
 }
