@@ -7,19 +7,18 @@ using UnityEngine.Networking;
 
 public class GetProgressAndPoints : MonoBehaviour
 {
-    public TMP_Text Progress;
-    public TMP_Text Points;
+    
     [NonSerialized]
     public string Response;
     
     IEnumerator ieGetProgressPoints()
     {
         WWWForm dataForm = new WWWForm();
-        dataForm.AddField("team", "5");
-        dataForm.AddField("thunt", GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID);
+        dataForm.AddField("team", "2");
+        dataForm.AddField("thunt", "1");
         string uri = "https://arthunt.000webhostapp.com/SolvedRiddles.php";
 
-        UnityEngine.Networking.UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
+        UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
         webRequest.chunkedTransfer = false;
 
         yield return webRequest.SendWebRequest();
@@ -27,14 +26,15 @@ public class GetProgressAndPoints : MonoBehaviour
         Response = webRequest.downloadHandler.text;
         Debug.Log("Resp" + Response);
         string[] splitRaw = Response.Split('*');
-        Progress.text = splitRaw[0];
-        Points.text = splitRaw[1];
+
+        GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
         Debug.Log("Prog" + splitRaw[0]);
+        GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Points").GetComponent<TextMeshProUGUI>().text ="Points:"+ splitRaw[1];
         Debug.Log("Points" + splitRaw[1]);
 
     }
 
-    public void GetProgressPoints()
+    void Start()
     {
         StartCoroutine(ieGetProgressPoints());
     }

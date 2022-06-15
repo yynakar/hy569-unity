@@ -41,7 +41,7 @@ public class GetGames : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.Success:
                     string rawResponse = webRequest.downloadHandler.text;
-                    Debug.Log("edo " + rawResponse);
+                   
                     string[] games = rawResponse.Split('*');
                     foreach(string i in games)
                     {
