@@ -63,8 +63,8 @@ public class GetRiddlesOfThunt : MonoBehaviour
                     GameObject.Find("DataManager").GetComponent<DataManagement>().Riddles = riddles;
                     string FirstText = riddles.FirstOrDefault().getText();
                     GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Riddle").GetComponent<TextMeshProUGUI>().text = FirstText;
-
-
+                    string FirstInfoText = riddles.FirstOrDefault().getText();
+                    
                     break;
             }
        
