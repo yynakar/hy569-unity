@@ -350,10 +350,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1926967112585994965, guid: 3b7e74ebc499e3c4e85ed0b887ef8f4e, type: 3}
-      propertyPath: m_isRightToLeft
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4417771741460533369, guid: 3b7e74ebc499e3c4e85ed0b887ef8f4e, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -619,6 +615,7 @@ MonoBehaviour:
   TreasureHuntID: 0
   TreasureHuntName: 
   TeamName: 
+  Riddles: []
 --- !u!1 &1860324282
 GameObject:
   m_ObjectHideFlags: 0

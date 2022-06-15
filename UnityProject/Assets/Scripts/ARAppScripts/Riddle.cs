@@ -17,7 +17,7 @@ public class Riddle : MonoBehaviour
         this.points = points;
     }
 
-
+    public string getText() { return this.text;}
     public override string ToString()
     {
         return "Riddle: " + text + " " + location_solution + " " + infotext + " " + points;

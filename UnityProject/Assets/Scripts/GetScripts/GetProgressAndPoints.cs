@@ -14,8 +14,8 @@ public class GetProgressAndPoints : MonoBehaviour
     IEnumerator ieGetProgressPoints()
     {
         WWWForm dataForm = new WWWForm();
-        dataForm.AddField("team", "Annoulas Team");
-        dataForm.AddField("thunt","1");
+        dataForm.AddField("team","Annoulas Team");
+        dataForm.AddField("thunt", "1");
         string uri = "https://arthunt.000webhostapp.com/SolvedRiddles.php";
 
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
@@ -28,9 +28,10 @@ public class GetProgressAndPoints : MonoBehaviour
         string[] splitRaw = Response.Split('*');
 
         GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
-        Debug.Log("Prog" + splitRaw[0]);
+        //Debug.Log("Prog" + splitRaw[0]);
         GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Points").GetComponent<TextMeshProUGUI>().text ="Points:  "+ splitRaw[1];
-        Debug.Log("Points" + splitRaw[1]);
+        //Debug.Log("Points" + splitRaw[1]);
+
 
     }
 

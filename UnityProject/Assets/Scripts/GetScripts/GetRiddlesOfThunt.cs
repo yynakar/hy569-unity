@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using System.Linq;
+using TMPro;
 
 public class GetRiddlesOfThunt : MonoBehaviour
 {
@@ -58,10 +60,10 @@ public class GetRiddlesOfThunt : MonoBehaviour
                         }
                     }
 
-                    foreach (Riddle element in riddles)
-                    {
-                        Debug.Log($"{element.ToString()} ");
-                    }
+                    GameObject.Find("DataManager").GetComponent<DataManagement>().Riddles = riddles;
+                    string FirstText = riddles.FirstOrDefault().getText();
+                    GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Riddle").GetComponent<TextMeshProUGUI>().text = FirstText;
+
 
                     break;
             }
