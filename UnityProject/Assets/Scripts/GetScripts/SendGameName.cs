@@ -20,7 +20,7 @@ public class SendGameName : MonoBehaviour
     {
         WWWForm dataForm = new WWWForm();
         dataForm.AddField("name", GameName);
-       // GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName = GameName;
+        GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName = GameName;
         dataForm.AddField("user", GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername);
        
         string uri = "https://arthunt.000webhostapp.com/ReturnThuntIdAndTeam.php";
