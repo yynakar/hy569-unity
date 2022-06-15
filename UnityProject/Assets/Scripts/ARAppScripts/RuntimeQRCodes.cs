@@ -66,23 +66,24 @@ public class RuntimeQRCodes : MonoBehaviour
     void Start()
     {
         m_TrackedImageManager = GameObject.Find("AR Foundation/AR Session Origin").GetComponent<ARTrackedImageManager>();
+        m_ImageLibrary = GetComponent<ARTrackedImageManager>().referenceLibrary;
 
         //m_ImageLibrary = m_TrackedImageManager.CreateRuntimeLibrary();
 
-       // var mutableLibrary = m_TrackedImageManager.referenceLibrary;
-       // if ((MutableRuntimeReferenceImageLibrary)m_TrackedImageManager.referenceLibrary is MutableRuntimeReferenceImageLibrary mutableLibrary)
-      //  {
-            //mutableLibrary = m_TrackedImageManager.CreateRuntimeLibrary() as MutableRuntimeReferenceImageLibrary;
-           // mutableLibrary = (MutableRuntimeReferenceImageLibrary)m_TrackedImageManager.referenceLibrary;
-            // StartCoroutine(AddAllImagesToMutableReferenceImageLibraryAR(mutableLibrary));
-            //debugText.text=mutableLibrary.GetSupportedTextureFormatAt(0)+"OK VSK ";
-            //debugText2.text=mutableLibrary.GetSupportedTextureFormatAt(1)+" ";
-            //debugText3.text=mutableLibrary.GetSupportedTextureFormatAt(2)+" ";
-            //debugText4.text=mutableLibrary.GetSupportedTextureFormatAt(3)+" ";
-            //debugText5.text=mutableLibrary.GetSupportedTextureFormatAt(4)+" ";
-            //debugText6.text=mutableLibrary.GetSupportedTextureFormatAt(5)+" ";
-            //debugText7.text=mutableLibrary.GetSupportedTextureFormatAt(6)+" ";
-       // }
+        // var mutableLibrary = m_TrackedImageManager.referenceLibrary;
+        // if ((MutableRuntimeReferenceImageLibrary)m_TrackedImageManager.referenceLibrary is MutableRuntimeReferenceImageLibrary mutableLibrary)
+        //  {
+        //mutableLibrary = m_TrackedImageManager.CreateRuntimeLibrary() as MutableRuntimeReferenceImageLibrary;
+        // mutableLibrary = (MutableRuntimeReferenceImageLibrary)m_TrackedImageManager.referenceLibrary;
+        // StartCoroutine(AddAllImagesToMutableReferenceImageLibraryAR(mutableLibrary));
+        //debugText.text=mutableLibrary.GetSupportedTextureFormatAt(0)+"OK VSK ";
+        //debugText2.text=mutableLibrary.GetSupportedTextureFormatAt(1)+" ";
+        //debugText3.text=mutableLibrary.GetSupportedTextureFormatAt(2)+" ";
+        //debugText4.text=mutableLibrary.GetSupportedTextureFormatAt(3)+" ";
+        //debugText5.text=mutableLibrary.GetSupportedTextureFormatAt(4)+" ";
+        //debugText6.text=mutableLibrary.GetSupportedTextureFormatAt(5)+" ";
+        //debugText7.text=mutableLibrary.GetSupportedTextureFormatAt(6)+" ";
+        // }
 
     }
     //  private IEnumerator AddAllImagesToMutableReferenceImageLibraryAR(MutableRuntimeReferenceImageLibrary mutableLibrary)
@@ -117,35 +118,34 @@ public class RuntimeQRCodes : MonoBehaviour
     //    yield return null;
     //}
 
-  //  private void Update()
-  //  {
+    //  private void Update()
+    //  {
     //    debugText2.text = "lfla"+ m_TrackedImageManager.referenceLibrary.count;
-        //if (m_TrackedImageManager.referenceLibrary is MutableRuntimeReferenceImageLibrary mutableLibrary)
-        //{
-        //    try
-        //    {
-        //        foreach (var image in m_Images)
-        //        {
-        //            // Note: You do not need to do anything with the returned JobHandle, but it can be
-        //            // useful if you want to know when the image has been added to the library since it may
-        //            // take several frames.
-        //            image.jobState = mutableLibrary.ScheduleAddImageWithValidationJob(image.texture, image.name, image.width);
-                    
-        //        }
+    //if (m_TrackedImageManager.referenceLibrary is MutableRuntimeReferenceImageLibrary mutableLibrary)
+    //{
+    //    try
+    //    {
+    //        foreach (var image in m_Images)
+    //        {
+    //            // Note: You do not need to do anything with the returned JobHandle, but it can be
+    //            // useful if you want to know when the image has been added to the library since it may
+    //            // take several frames.
+    //            image.jobState = mutableLibrary.ScheduleAddImageWithValidationJob(image.texture, image.name, image.width);
 
-        //        //m_State = State.AddingImages;
-        //    }
-        //    catch (InvalidOperationException e)
-        //    {
-        //        debugText.text = "ScheduleAddImageJob threw exception: " + e.Message;
-        //    }
-        //}
-   // }
+    //        }
+
+    //        //m_State = State.AddingImages;
+    //    }
+    //    catch (InvalidOperationException e)
+    //    {
+    //        debugText.text = "ScheduleAddImageJob threw exception: " + e.Message;
+    //    }
+    //}
+    // }
 
     //Get which images tracked
     void OnEnable()
     {
-        debugText.text = "meta";
         m_TrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
     }
     void OnDisable()
@@ -155,7 +155,7 @@ public class RuntimeQRCodes : MonoBehaviour
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs e)
     {
         UpdateTrackedImages(e.added);
-        //UpdateTrackedImages(e.updated);
+        UpdateTrackedImages(e.updated);
         //foreach (var trackedImage in e.added)
         //{
         //    debugText.text = trackedImage.referenceImage.name; 
@@ -175,10 +175,10 @@ public class RuntimeQRCodes : MonoBehaviour
     {
         
            var trackedImage =
-            trackedImages.FirstOrDefault(x => x.referenceImage.name == "Vaseline-Logo");
-       //// debugText2.text = trackedImage.name+"";
-       // var trackedImage2 =
-       //     trackedImages.FirstOrDefault(x => x.referenceImage.name == "qrcode2");
+            trackedImages.FirstOrDefault(x => x.referenceImage.name == "qr2");
+         debugText2.text = "exo";
+        var trackedImage2 =
+            trackedImages.FirstOrDefault(x => x.referenceImage.name == "testQRFromServer");
 
 
         if (trackedImage)
@@ -188,11 +188,11 @@ public class RuntimeQRCodes : MonoBehaviour
             WrongMsg.SetActive(false);
             debugText.text = "ALLILOUIA";
         }
-        //if (trackedImage2)
-        //{
-        //    WrongMsg.SetActive(true);
-        //    CorrectMsg.SetActive(false);
-        //}
+        if (trackedImage2)
+        {
+            WrongMsg.SetActive(true);
+            CorrectMsg.SetActive(false);
+        }
         //if (trackedImage3)
         //{
         //    CorrectMsg.SetActive(true);
