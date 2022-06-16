@@ -8,6 +8,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using System.Collections.Generic;
 using System;
+using TMPro;
 
 namespace UnityEngine.XR.ARFoundation.Samples
 {
@@ -55,6 +56,8 @@ namespace UnityEngine.XR.ARFoundation.Samples
         //public ImageData[] m_Images; 
         public List<ImageData> m_Images;
 
+        public TMP_Text debugText;
+        public TMP_Text debugText2;
         /// <summary>
         /// The set of images to add to the image library at runtime
         /// </summary>
@@ -230,6 +233,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             string[] fileEntries = Directory.GetFiles(targetDirectory);
             if (fileEntries.Length != 0)
             {
+                debugText.text = "edo" + "";
                 int i = 0;
                 foreach (string fileName in fileEntries)
                 {
@@ -261,20 +265,23 @@ namespace UnityEngine.XR.ARFoundation.Samples
             }
             m_Images.Add(newIm);
             //File.ReadAllBytes(Application.dataPath + "/DownloadedQR/" + i + ".png", tex);
-            //if (runtimeReferenceImageLibrary is MutableRuntimeReferenceImageLibrary mutableLibrary)
-            //{
-            //    try
-            //    {
-            //Debug.Log("COUNT: " + GetComponent<ARTrackedImageManager>().referenceLibrary.count);
-            //Debug.Log("m_Images: " + m_Images.Count);
-            foreach (var image in m_Images)
+            var library = manager.CreateRuntimeLibrary();
+            debugText2.text=library+"";
+            if (library is MutableRuntimeReferenceImageLibrary mutableLibrary)
+            {
+                debugText2.text = library + "";
+                //    try
+                //    {
+                //Debug.Log("COUNT: " + GetComponent<ARTrackedImageManager>().referenceLibrary.count);
+                //Debug.Log("m_Images: " + m_Images.Count);
+                foreach (var image in m_Images)
             {
                 // note: you do not need to do anything with the returned jobhandle, but it can be
                 // useful if you want to know when the image has been added to the library since it may
                 // take several frames.
                 //image.jobstate = mutablelibrary.scheduleaddimagewithvalidationjob(image.texture, image.name, image.width);
-                image.jobState = runtimeReferenceImageLibrary.ScheduleAddImageWithValidationJob(image.texture, image.name, image.width);
-                Debug.Log("lola");
+                image.jobState = mutableLibrary.ScheduleAddImageWithValidationJob(image.texture, image.name, image.width);
+                
                 while (!image.jobState.jobHandle.IsCompleted)
                 {
                     Debug.Log("Image added");
@@ -287,7 +294,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             //    {
             //        SetError($"ScheduleAddImageJob threw exception: {e.Message}");
             //    }
-            //}
+            }
         }
     }
 }
