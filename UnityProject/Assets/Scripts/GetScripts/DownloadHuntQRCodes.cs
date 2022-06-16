@@ -11,8 +11,8 @@ public class DownloadHuntQRCodes : MonoBehaviour
     void Start()
     {
         // string data="";
-      //  StartCoroutine(GetQRPaths("https://arthunt.000webhostapp.com/RiddlesPng.php"));
-        StartCoroutine(DownloadQRCodes("qrcodes/riddle_t1_r3.png"));
+        StartCoroutine(GetQRPaths("https://arthunt.000webhostapp.com/RiddlesPng.php"));
+        //StartCoroutine(DownloadQRCodes("qrcodes/riddle_t1_r3.png"));
 
     }
 
@@ -20,7 +20,7 @@ public class DownloadHuntQRCodes : MonoBehaviour
     {
 
         WWWForm dataForm = new WWWForm();
-        dataForm.AddField("thunt", GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID);
+        dataForm.AddField("thunt", "1");//GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID);
 
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
         webRequest.chunkedTransfer = false;
@@ -39,9 +39,9 @@ public class DownloadHuntQRCodes : MonoBehaviour
                 Debug.Log(UnityWebRequest.Result.ProtocolError);
                 break;
             case UnityWebRequest.Result.Success:
-                
-                    StartCoroutine(DownloadQRCodes(webRequest.downloadHandler.text));
-                
+
+                StartCoroutine(DownloadQRCodes(webRequest.downloadHandler.text));
+
                 break;
 
         }
@@ -49,70 +49,40 @@ public class DownloadHuntQRCodes : MonoBehaviour
 
     IEnumerator DownloadQRCodes(string paths)
     {
-        //var myTexture = webRequest.downloadHandler.data;
+       
 
-       string[] values = paths.Split('*');
+        string[] values = paths.Split('*');
 
-       foreach (var i in values)
-        {
-            UnityWebRequest webRequest2 = UnityWebRequest.Get("https://arthunt.000webhostapp.com/download.php?path=" + i);
+        for (int i = 0; i < values.Length; i++)
 
-        // Request and wait for the desired page.
-            yield return webRequest2.SendWebRequest();
-
-
-            if (i == "")
+            using (UnityWebRequest webRequest = UnityWebRequest.Get("https://arthunt.000webhostapp.com/download.php?path=" + values[i]))
             {
-                break;
+                if (values[i] == "")
+                {
+                    break;
+                }
+                // Request and wait for the desired page.
+                yield return webRequest.SendWebRequest();
+
+                
+
+                switch (webRequest.result)
+                {
+                    case UnityWebRequest.Result.ConnectionError:
+                    case UnityWebRequest.Result.DataProcessingError:
+                        Debug.LogError("Error: " + webRequest.error);
+                        break;
+                    case UnityWebRequest.Result.ProtocolError:
+                        Debug.LogError(" HTTP Error: " + webRequest.error);
+                        break;
+                    case UnityWebRequest.Result.Success:
+                        Debug.Log("\nReceived edo" + i);
+                        var myTexture = webRequest.downloadHandler.data;
+                        File.WriteAllBytes(Application.dataPath + "/Resources/" + values[i].Replace("qrcodes/", "").Replace(".png", "") + ".png", myTexture);
+                        break;
+                }
             }
-            Debug.Log(i);
-            //qrcodes/riddle_t1_r1.png*qrcodes/riddle_t1_r2.png*qrcodes/riddle_t1_r3.png*
-            // yield return new WaitUntil(() => webRequest2.isDone);
-
-            switch (webRequest2.result)
-         {
-             case UnityWebRequest.Result.ConnectionError:
-                 Debug.Log(UnityWebRequest.Result.ConnectionError);
-                 break;
-             case UnityWebRequest.Result.DataProcessingError:
-                 Debug.Log(UnityWebRequest.Result.DataProcessingError);
-                 break;
-             case UnityWebRequest.Result.ProtocolError:
-                 Debug.Log(UnityWebRequest.Result.ProtocolError);
-                 break;
-             case UnityWebRequest.Result.InProgress:
-                 Debug.Log(UnityWebRequest.Result.InProgress);
-                 break;
-             case UnityWebRequest.Result.Success:
-
-                 Debug.Log("edo ");
-                 break;
-         }
-
-        /*switch (webRequest2.result)
-        {
-            case UnityWebRequest.Result.ConnectionError:
-                Debug.Log(UnityWebRequest.Result.ConnectionError);
-                break;
-            case UnityWebRequest.Result.DataProcessingError:
-                Debug.Log(UnityWebRequest.Result.DataProcessingError);
-                break;
-            case UnityWebRequest.Result.ProtocolError:
-                Debug.Log(UnityWebRequest.Result.ProtocolError);
-                break;
-            case UnityWebRequest.Result.Success:
-
-                var myTexture = webRequest2.downloadHandler.data;
-                Debug.Log("arci");
-                Debug.Log("i=" + i.Replace("qrcodes/", "").Replace(".png", ""));
-                Debug.Log("myTexture=" + myTexture);
-                Debug.Log("telos");
-                //valta se kalo path
-                File.WriteAllBytes(Application.dataPath + "/Resources/" + i.Replace("qrcodes/", "").Replace(".png", "") + ".png", myTexture);
-                //Debug.Log("File Written On Disk!");
-                break;
-        }*/
-         }
-         //gia prosorina
-    }
+        }
+    
 }
+        
