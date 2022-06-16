@@ -20,8 +20,8 @@ public class DownloadHuntQRCodes : MonoBehaviour
     {
 
         WWWForm dataForm = new WWWForm();
-        dataForm.AddField("thunt", "1");//GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID);
-
+        dataForm.AddField("thunt", GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName);
+       
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
         webRequest.chunkedTransfer = false;
 
@@ -76,7 +76,7 @@ public class DownloadHuntQRCodes : MonoBehaviour
                         Debug.LogError(" HTTP Error: " + webRequest.error);
                         break;
                     case UnityWebRequest.Result.Success:
-                        Debug.Log("\nReceived edo" + i);
+                        Debug.Log("Success: " + i);
                         var myTexture = webRequest.downloadHandler.data;
                         File.WriteAllBytes(Application.dataPath + "/Resources/" + values[i].Replace("qrcodes/", "").Replace(".png", "") + ".png", myTexture);
                         break;

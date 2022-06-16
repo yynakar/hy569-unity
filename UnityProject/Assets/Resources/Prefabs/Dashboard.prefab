@@ -819,6 +819,7 @@ GameObject:
   - component: {fileID: 5486539059442862641}
   - component: {fileID: 2670218420201292268}
   - component: {fileID: 4983592700105165705}
+  - component: {fileID: 8441514771291156187}
   m_Layer: 0
   m_Name: Dashboard
   m_TagString: Untagged
@@ -878,6 +879,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6690a84241ba9a6408b12d31103fab21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8441514771291156187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263287224269351187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c021648eb4e5688469daff3e23cfdf1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5051767926868798167
