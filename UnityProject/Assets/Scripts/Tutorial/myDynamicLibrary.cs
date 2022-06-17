@@ -266,7 +266,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             m_Images.Add(newIm);
             //File.ReadAllBytes(Application.dataPath + "/DownloadedQR/" + i + ".png", tex);
             var library = manager.CreateRuntimeLibrary();
-            debugText2.text=library+"";
+            debugText2.text=library+"Created";
             if (library is MutableRuntimeReferenceImageLibrary mutableLibrary)
             {
                 debugText2.text = library + "";
