@@ -83,7 +83,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         string m_ErrorMessage = "";
 
         StringBuilder m_StringBuilder = new StringBuilder();
-
+        #region ongui
         /*  void OnGUI()
           {
               var fontSize = 50;
@@ -131,7 +131,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
               GUILayout.EndArea();
           }
         */
-
+        #endregion
         private void Start()
         {
             m_Images = new List<ImageData>();
@@ -146,8 +146,12 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         void Update()
         {
-            ProcessDirectory(Application.dataPath + "/DownloadedQR/");
-
+            //ProcessDirectory(Application.dataPath + "/DownloadedQR/");
+            if(Directory.Exists(Application.persistentDataPath + "/DownloadedQR/"))
+            {
+            ProcessDirectory(Application.persistentDataPath + "/DownloadedQR/");
+            }
+            #region switch
 
             //switch (m_State)
             //{
@@ -225,15 +229,18 @@ namespace UnityEngine.XR.ARFoundation.Samples
             //            break;
             //        }
             //}
+            #endregion
         }
 
         public void ProcessDirectory(string targetDirectory)
         {
             // Process the list of files found in the directory.
             string[] fileEntries = Directory.GetFiles(targetDirectory);
+
+            debugText2.text = "" + fileEntries[0];
             if (fileEntries.Length != 0)
             {
-                debugText.text = "edo" + "";
+                debugText.text = "edo den ta vlepei 0";
                 int i = 0;
                 foreach (string fileName in fileEntries)
                 {
