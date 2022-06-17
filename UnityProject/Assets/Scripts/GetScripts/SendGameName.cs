@@ -51,6 +51,7 @@ public class SendGameName : MonoBehaviour
         GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID = int.Parse(values[1]);
         GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName = values[3];
         GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Team Name").GetComponent<TextMeshProUGUI>().text = values[3];
-        gameObject.transform.parent.gameObject.SetActive(false);
+        //gameObject.transform.parent.gameObject.SetActive(false);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

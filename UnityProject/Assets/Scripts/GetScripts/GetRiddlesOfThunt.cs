@@ -15,7 +15,7 @@ public class GetRiddlesOfThunt : MonoBehaviour
     void Start()
     {
         treasureHunt = GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID;
-        Debug.Log(treasureHunt);
+
         StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/ReturnRiddleThunt.php"));
     } 
 

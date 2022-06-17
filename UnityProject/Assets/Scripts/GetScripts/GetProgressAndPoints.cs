@@ -15,7 +15,7 @@ public class GetProgressAndPoints : MonoBehaviour
     {
         WWWForm dataForm = new WWWForm();
         dataForm.AddField("team","Annoulas Team");
-        dataForm.AddField("thunt", "1");
+        dataForm.AddField("thunt", GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID);
         string uri = "https://arthunt.000webhostapp.com/SolvedRiddles.php";
 
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
@@ -24,7 +24,7 @@ public class GetProgressAndPoints : MonoBehaviour
         yield return webRequest.SendWebRequest();
 
         Response = webRequest.downloadHandler.text;
-        Debug.Log("Resp" + Response);
+
         string[] splitRaw = Response.Split('*');
 
         GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];

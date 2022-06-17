@@ -71,13 +71,11 @@ public class DownloadHuntQRCodes : MonoBehaviour
                         Debug.LogError(" HTTP Error: " + webRequest.error);
                         break;
                     case UnityWebRequest.Result.Success:
-                        if (GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>())
-                        {
-
-                            Debug.Log("edo");
-                            GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>().text = "success";
-                            GameObject.Find("Canvas/Text (TMP) (1)").GetComponent<TextMeshProUGUI>().text = "lala";
-                        }
+                        //if (GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>())
+                        //{
+                        //    GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>().text = "success";
+                        //    GameObject.Find("Canvas/Text (TMP) (1)").GetComponent<TextMeshProUGUI>().text = "lala";
+                        //}
                         var myTexture = webRequest.downloadHandler.data;
                         File.WriteAllBytes(Application.dataPath + "/DownloadedQR/" + values[i].Replace("qrcodes/", ""), myTexture);
                         break;
