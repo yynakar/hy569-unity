@@ -12,5 +12,5 @@ public class DataManagement : MonoBehaviour
     public string TreasureHuntName;
     //[HideInInspector]
     public string TeamName;
-    public List<Riddle> Riddles;
+    public ArrayList Riddles;
 }

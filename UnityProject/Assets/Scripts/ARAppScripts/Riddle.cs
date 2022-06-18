@@ -18,6 +18,10 @@ public class Riddle : MonoBehaviour
     }
 
     public string getText() { return this.text;}
+    public string getLocation() { return this.location_solution; }
+    public string getInfo() { return this.infotext; }
+    public string getPoints() { return this.points; }
+
     public override string ToString()
     {
         return "Riddle: " + text + " " + location_solution + " " + infotext + " " + points;

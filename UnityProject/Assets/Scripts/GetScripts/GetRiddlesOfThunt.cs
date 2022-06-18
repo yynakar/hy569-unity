@@ -7,67 +7,76 @@ using TMPro;
 
 public class GetRiddlesOfThunt : MonoBehaviour
 {
-    public List<Riddle> riddles= new List<Riddle>();
+    ArrayList riddles = new ArrayList();
 
-    int treasureHunt;
+    string treasureHunt;
 
     // Start is called before the first frame update
     void Start()
     {
-        treasureHunt = GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID;
+        treasureHunt = GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName;
 
         StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/ReturnRiddleThunt.php"));
-    } 
+    }
 
     IEnumerator GetRequest(string uri)
     {
-        
-            WWWForm dataForm = new WWWForm();
-            dataForm.AddField("thunt", treasureHunt);//bale sto 20 to global thing
+
+        WWWForm dataForm = new WWWForm();
+        dataForm.AddField("thunt", treasureHunt);//bale sto 20 to global thing
 
 
-            UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
-            webRequest.chunkedTransfer = false;
+        UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
+        webRequest.chunkedTransfer = false;
 
 
-            // Request and wait for the desired page.
-            yield return webRequest.SendWebRequest();
+        // Request and wait for the desired page.
+        yield return webRequest.SendWebRequest();
 
-            string[] pages = uri.Split('/');
-            int page = pages.Length - 1;
+        string[] pages = uri.Split('/');
+        int page = pages.Length - 1;
 
-            switch (webRequest.result)
-            {
-                case UnityWebRequest.Result.ConnectionError:
-                case UnityWebRequest.Result.DataProcessingError:
-                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
-                    break;
-                case UnityWebRequest.Result.ProtocolError:
-                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
-                    break;
-                case UnityWebRequest.Result.Success:
+        switch (webRequest.result)
+        {
+            case UnityWebRequest.Result.ConnectionError:
+            case UnityWebRequest.Result.DataProcessingError:
+                Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                break;
+            case UnityWebRequest.Result.ProtocolError:
+                Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                break;
+            case UnityWebRequest.Result.Success:
 
-                    string rawResponse = webRequest.downloadHandler.text;
-                    string[] splitRaw= rawResponse.Split('*');
-                    Riddle riddle;
+                string rawResponse = webRequest.downloadHandler.text;
 
-                    for(int i=0; i<splitRaw.Length-4; i=i+4)
+                string[] splitRaw = rawResponse.Split('*');
+                Riddle riddle;
+                //Debug.Log(rawResponse);
+                for (int i = 0; i < splitRaw.Length - 4; i = i + 4)
+                {
+
+                    if (splitRaw[i] != "")
                     {
-                        if (splitRaw[i]!= "")
-                        {
-                            riddle = new Riddle(splitRaw[i], splitRaw[i + 1], splitRaw[i + 2], splitRaw[i + 3]);
-                            riddles.Add(riddle);
-                        }
-                    }
 
-                    GameObject.Find("DataManager").GetComponent<DataManagement>().Riddles = riddles;
-                    //string FirstText = riddles.FirstOrDefault().getText();
-                Debug.Log("First Text" + riddles.FirstOrDefault());
-                  //  GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Riddle").GetComponent<TextMeshProUGUI>().text = FirstText;
-                    string FirstInfoText = riddles.FirstOrDefault().getText();
-                    
-                    break;
-            }
-       
+                        riddle = new Riddle(splitRaw[i], splitRaw[i + 1], splitRaw[i + 2], splitRaw[i + 3]);
+                        
+                        riddles.Add(riddle);
+                    }
+                }
+                
+                //foreach(Riddle v in riddles)
+                //{
+                //    Debug.Log(v.ToString());
+                //}
+                GameObject.Find("DataManager").GetComponent<DataManagement>().Riddles = riddles;
+                Riddle r = (Riddle)riddles[0];
+                string FirstRiddle = r.getText();
+                Debug.Log("First Text" + FirstRiddle);
+                GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Riddle").GetComponent<TextMeshProUGUI>().text = FirstRiddle;
+                //string FirstInfoText = riddles.FirstOrDefault().getText();
+
+                break;
+        }
+
     }
 }
