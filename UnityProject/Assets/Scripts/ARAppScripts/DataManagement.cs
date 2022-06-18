@@ -14,6 +14,6 @@ public class DataManagement : MonoBehaviour
     public string TeamName;
     public ArrayList Riddles;
 
-    public bool riddleSolved = false;
+    public bool riddleSolved;
   
 }

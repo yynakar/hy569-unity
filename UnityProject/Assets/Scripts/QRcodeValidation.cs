@@ -1,9 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
-using System.Collections.Generic;
-using System.Linq;
 
 public class QRcodeValidation : MonoBehaviour
 {
@@ -47,7 +44,6 @@ public class QRcodeValidation : MonoBehaviour
 
     void ImageChangedHandle(ARTrackedImagesChangedEventArgs imgChangedArgs)
     {
-        // loop over new found images. imgChangedArgs.added is List<ARTrackedImage>
         foreach (var item in imgChangedArgs.added)
         {
             string thuntIDfirst = item.referenceImage.name;
@@ -61,8 +57,10 @@ public class QRcodeValidation : MonoBehaviour
             else
             {
 
-                debugText.text = "den mpika edo" + thuntID[0];
+            GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().ValidateQR();
             }
         }
     }
+    //ti tha ginei an scananro alli eikona
+    
 }
