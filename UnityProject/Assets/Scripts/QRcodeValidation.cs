@@ -50,14 +50,14 @@ public class QRcodeValidation : MonoBehaviour
             var thuntID = thuntIDfirst.Replace("riddle_t", "").Split('_');
             if (int.Parse(thuntID[0]) == GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID)
             {
-                var riddleID = item.referenceImage.name.Replace("riddle_t", "").Replace(GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID + "", "")
+                debugText.text = "eddh";
+                   var riddleID = item.referenceImage.name.Replace("riddle_t", "").Replace(GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID + "", "")
                 .Replace("_r", "");
                 GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().cSolved(int.Parse(riddleID));
             }
             else
             {
-
-            GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().ValidateQR();
+                GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().ValidateQR();
             }
         }
     }

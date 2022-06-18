@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -55,11 +55,17 @@ public class Solved : MonoBehaviour
     }
     public void ValidateQR()
     {
-        debugText2.text = "edo " + GameObject.Find("DataManager").GetComponent<DataManagement>().riddleSolved;
 
         if (GameObject.Find("DataManager").GetComponent<DataManagement>().riddleSolved == true)
         {
             Instantiate(Resources.Load("Prefabs/btn_Proceed"), GameObject.Find("ScanRiddlePage(Clone)/UI/Canvas/").transform);
+
+            GameObject.Find("ScanRiddlePage(Clone)/UI/Canvas/btn_Proceed(Clone)").GetComponent<Button>().onClick.AddListener(() =>
+            {
+                Instantiate(Resources.Load("Prefabs/Solved"));
+
+                gameObject.SetActive(false);
+            });
         }
         else
         {
