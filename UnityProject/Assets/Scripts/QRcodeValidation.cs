@@ -16,6 +16,7 @@ public class QRcodeValidation : MonoBehaviour
     [SerializeField]
     GameObject WrongMsg;
     public TMP_Text debugText;
+    public TMP_Text debugText2;
 
     [Tooltip("Reference Image Library")]
     IReferenceImageLibrary m_ImageLibrary;
@@ -96,12 +97,18 @@ public class QRcodeValidation : MonoBehaviour
         // loop over new found images. imgChangedArgs.added is List<ARTrackedImage>
         foreach (var item in imgChangedArgs.added)
         {
-            debugText.text = "kati";
-            debugText.text = "lalala";
-            //kalo prefab
-            //delete prev when next is scaned (eneable xristi na kanei polla scans?)
-            //loop
-            //sosto k lathos apotelesma
+            //PREPEI NA SCANNAREI MONO TOU IDIOU XRISTI
+            var c = item.referenceImage.name.Replace("riddle_t", "").Replace(GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID+"","")
+                .Replace("qr","");//meta t t id einai treasuer id
+
+            debugText.text = c+"";
+            debugText2.text = "lalala";
+            //na to valo se form auto kai me id mallon apo link tha pairno t riddle (teleutaio)
+            //link qr?r=last psifio i 2psifio (Solved?...
+            //https://arthunt.000webhostapp.com/Solved.php?r=2
+            //scanare to aurio
+            //id_hunt 
+            //id_team
         }
     }
     private void UpdateTrackedImages(IEnumerable<ARTrackedImage> trackedImages)

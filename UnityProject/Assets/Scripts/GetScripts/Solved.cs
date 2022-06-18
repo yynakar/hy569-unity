@@ -13,15 +13,16 @@ public class Solved : MonoBehaviour
     {
         treasureHunt = 4;// GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID;
         team = 4;// GameObject.Find("DataManager").GetComponent<DataManagement>().TeamID;
-        StartCoroutine(Solve("https://arthunt.000webhostapp.com/Solved.php?r=4"));
+        StartCoroutine(Solve(8));
     }
 
-    IEnumerator Solve(string uri)
+    IEnumerator Solve(int riddleID)
     {
 
         WWWForm dataForm = new WWWForm();
-        dataForm.AddField("id_thunt", "8"/*treasureHunt*/);
-        dataForm.AddField("id_team", "8"/*team*/);
+        dataForm.AddField("id_thunt", GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID);
+        dataForm.AddField("team", GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName);//remind katerina na to deite
+        string uri ="https://arthunt.000webhostapp.com/Solved.php?r=" + riddleID;
 
 
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
@@ -38,15 +39,13 @@ public class Solved : MonoBehaviour
         {
             case UnityWebRequest.Result.ConnectionError:
             case UnityWebRequest.Result.DataProcessingError:
-                Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                Debug.LogError(UnityWebRequest.Result.DataProcessingError);
                 break;
             case UnityWebRequest.Result.ProtocolError:
-                Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                Debug.LogError(UnityWebRequest.Result.ProtocolError);
                 break;
             case UnityWebRequest.Result.Success:
-
-                string rawResponse = webRequest.downloadHandler.text;
-                Debug.Log(rawResponse);
+                Debug.Log(UnityWebRequest.Result.Success);
                 break;
         }
 

@@ -19,7 +19,13 @@ public class DownloadHuntQRCodes : MonoBehaviour
 
         WWWForm dataForm = new WWWForm();
         dataForm.AddField("thunt", GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName);
+        if (!Directory.Exists(Application.persistentDataPath + "/DownloadedQR"))
+        {
+            Debug.Log("edo");
+            DirectoryInfo di = Directory.CreateDirectory(Application.persistentDataPath+ "/DownloadedQR");
+        Debug.Log(di);
 
+        }
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
         webRequest.chunkedTransfer = false;
 
@@ -78,6 +84,7 @@ public class DownloadHuntQRCodes : MonoBehaviour
                         //}
                         var myTexture = webRequest.downloadHandler.data;
                         File.WriteAllBytes(Application.dataPath + "/DownloadedQR/" + values[i].Replace("qrcodes/", ""), myTexture);
+                        File.WriteAllBytes(Application.persistentDataPath + "/DownloadedQR/" + values[i].Replace("qrcodes/", ""), myTexture);
                         break;
                 }
             }
