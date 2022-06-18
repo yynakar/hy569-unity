@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -171.485}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 231, y: -1183}
+  m_AnchoredPosition: {x: 455, y: -1183}
   m_SizeDelta: {x: 103.8432, y: 57.1854}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &679798380121457601
@@ -569,7 +569,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: 57}
+  m_AnchoredPosition: {x: 51, y: -700}
   m_SizeDelta: {x: 462.4, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5555728065075621266
@@ -703,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: 165}
+  m_AnchoredPosition: {x: 51, y: 58}
   m_SizeDelta: {x: 462.4, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4647097232114750325
@@ -1229,9 +1229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b88e6c01cb42648bb529327814f37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  riddles:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &5857039696228521299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,7 +1421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: 56.999786}
+  m_AnchoredPosition: {x: -343, y: 166}
   m_SizeDelta: {x: 462.4, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8056871944117324529
