@@ -17,9 +17,7 @@ public class QRcodeValidation : MonoBehaviour
     GameObject WrongMsg;
     public TMP_Text debugText;
     public TMP_Text debugText2;
-
-    [Tooltip("Reference Image Library")]
-    IReferenceImageLibrary m_ImageLibrary;
+    public TMP_Text debugText3;
 
     [SerializeField]
     [Tooltip("Choose prefab to be spawned when QR is found")]
@@ -32,45 +30,7 @@ public class QRcodeValidation : MonoBehaviour
     void Awake()
     {
         m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
-        m_ImageLibrary = GetComponent<ARTrackedImageManager>().referenceLibrary;
     }
-    //tin lib thelo na tin kano modify at runtime?
-    //ta qrs otan fortonetai to paixnidi tha pernane stin unity
-    //isos xreiaste runtime n mpoun
-    private void Update()
-    {
-    }
-
-    private void ValidateQRCode()
-    {
-        //Connection with DB: send ACK that this riddle (string) was found by this team
-        //Sets CorrectRiddle bool
-    }
-
-    private void SpawnMessageAndPrefab(XRReferenceImage trackedImage)
-    {
-        //For correct riddle 
-        if (CorrectRiddle)
-        {
-            Instantiate(prefab);//+offset i me animation
-        }
-
-        //For in-correct riddle
-        else
-        {
-
-        }
-    }
-
-    //mia domi p na exei ola ta qr images
-    //an to qr guid einai auto p theloume (elegxos apo vasi an antistoixei sto riddle p thelei o xristis (?) simfona me t game tou
-    //) tote spawnare
-
-    //emeis tha exoume mia lista apo qrs
-    //o user mporei na scanarei enan p den einai sostos opote to default spawning den mas kanei
-    //dioti allo prama tha deixnoume an einai sosto scanning i oxi
-
-    //Get which images tracked
     void OnEnable()
     {
         m_TrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
@@ -82,73 +42,27 @@ public class QRcodeValidation : MonoBehaviour
     }
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs e)
     {
-        foreach (var trackedImage in e.added)
-        {
-            Debug.Log($"Tracked image detected: {trackedImage.referenceImage.name} with size: {trackedImage.size}");
-        }
-
-        //UpdateTrackedImages(e.added);
-        //UpdateTrackedImages(e.updated);
         ImageChangedHandle(e);
     }
-    // Method handling found/lost tracked images.
+
     void ImageChangedHandle(ARTrackedImagesChangedEventArgs imgChangedArgs)
     {
         // loop over new found images. imgChangedArgs.added is List<ARTrackedImage>
         foreach (var item in imgChangedArgs.added)
         {
-            //PREPEI NA SCANNAREI MONO TOU IDIOU XRISTI
-            var c = item.referenceImage.name.Replace("riddle_t", "").Replace(GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID+"","")
-                .Replace("qr","");//meta t t id einai treasuer id
+            string thuntIDfirst = item.referenceImage.name;
+            var thuntID = thuntIDfirst.Replace("riddle_t", "").Split('_');
+            if (int.Parse(thuntID[0]) == GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID)
+            {
+                var riddleID = item.referenceImage.name.Replace("riddle_t", "").Replace(GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID + "", "")
+                .Replace("_r", "");
+                GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().cSolved(int.Parse(riddleID));
+            }
+            else
+            {
 
-            debugText.text = c+"";
-            debugText2.text = "lalala";
-            //na to valo se form auto kai me id mallon apo link tha pairno t riddle (teleutaio)
-            //link qr?r=last psifio i 2psifio (Solved?...
-            //https://arthunt.000webhostapp.com/Solved.php?r=2
-            //scanare to aurio
-            //id_hunt 
-            //id_team
+                debugText.text = "den mpika edo" + thuntID[0];
+            }
         }
     }
-    private void UpdateTrackedImages(IEnumerable<ARTrackedImage> trackedImages)
-    {
-        // If the same image (ReferenceImageName)
-        var trackedImage =
-            trackedImages.FirstOrDefault(x => x.referenceImage.name == "qr2");
-        var trackedImage2 =
-            trackedImages.FirstOrDefault(x => x.referenceImage.name == "qr1");
-        var trackedImage3 =
-            trackedImages.FirstOrDefault(x => x.referenceImage.name == "qrcode1");
-        var trackedImage4 =
-            trackedImages.FirstOrDefault(x => x.referenceImage.name == "qrcode2");
-  
-
-        if (trackedImage)
-        {
-
-            CorrectMsg.SetActive(true);
-        }
-        if (trackedImage2)
-        {
-            Instantiate(prefab2);
-
-        }
-        if (trackedImage3)
-        {
-
-            WrongMsg.SetActive(true);
-        }
-        if (trackedImage4)
-        {
-            debugText.text = "kati";
-
-        }
-        //if (trackedImage.trackingState != TrackingState.None)
-        //{
-        //    var trackedImageTransform = trackedImage.transform;
-        //    transform.SetPositionAndRotation(trackedImageTransform.position, trackedImageTransform.rotation);
-        //}
-    }
-
 }

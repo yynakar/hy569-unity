@@ -16,12 +16,22 @@ MonoBehaviour:
   m_GuidHigh: 3662561249504097184
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5359913844663581166
-      m_GuidHigh: 9207907688808290229
+      m_GuidLow: 5749424608940591646
+      m_GuidHigh: 16771171456893512089
     m_SerializedTextureGuid:
-      m_GuidLow: 16056626024933251201
-      m_GuidHigh: 2482811659655196072
-    m_Size: {x: 0.01, y: 0.0056249998}
+      m_GuidLow: 4738998150146575252
+      m_GuidHigh: 3916295841072533240
+    m_Size: {x: 0.01, y: 0.01}
     m_SpecifySize: 1
-    m_Name: testQRFromServer
+    m_Name: riddle_t1_r2
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5560334975135753101
+      m_GuidHigh: 1327474426036756617
+    m_SerializedTextureGuid:
+      m_GuidLow: 6887205416852175674
+      m_GuidHigh: 11840432374727270459
+    m_Size: {x: 0.01, y: 0.01}
+    m_SpecifySize: 1
+    m_Name: riddle_t1_r3
     m_Texture: {fileID: 0}

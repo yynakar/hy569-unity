@@ -1,29 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class Solved : MonoBehaviour
 {
-    int treasureHunt;
-    int team;
-
-    // Start is called before the first frame update
-    void Start()
+    public TMP_Text debugText;
+    public TMP_Text debugText2;
+    private void Start()
     {
-        treasureHunt = 4;// GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID;
-        team = 4;// GameObject.Find("DataManager").GetComponent<DataManagement>().TeamID;
-        StartCoroutine(Solve(8));
+        debugText = GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>();
+        debugText2 = GameObject.Find("Canvas/Text (TMP) (1)").GetComponent<TextMeshProUGUI>();
     }
-
+    public void cSolved(int i)
+    {
+        StartCoroutine(Solve(i));
+    }
     IEnumerator Solve(int riddleID)
     {
 
         WWWForm dataForm = new WWWForm();
         dataForm.AddField("id_thunt", GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID);
-        dataForm.AddField("team", GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName);//remind katerina na to deite
+        dataForm.AddField("team",GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName);
         string uri ="https://arthunt.000webhostapp.com/Solved.php?r=" + riddleID;
-
 
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
         webRequest.chunkedTransfer = false;
@@ -32,9 +32,7 @@ public class Solved : MonoBehaviour
         // Request and wait for the desired page.
         yield return webRequest.SendWebRequest();
 
-        string[] pages = uri.Split('/');
-        int page = pages.Length - 1;
-
+        debugText.text = "req";
         switch (webRequest.result)
         {
             case UnityWebRequest.Result.ConnectionError:
@@ -45,7 +43,8 @@ public class Solved : MonoBehaviour
                 Debug.LogError(UnityWebRequest.Result.ProtocolError);
                 break;
             case UnityWebRequest.Result.Success:
-                Debug.Log(UnityWebRequest.Result.Success);
+                GameObject.Find("DataManager").GetComponent<DataManagement>().riddleSolved = true;
+                debugText2.text= webRequest.downloadHandler.text;
                 break;
         }
 

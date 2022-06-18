@@ -8,9 +8,12 @@ public class DataManagement : MonoBehaviour
     public string LoginResponseUsername;
     //[HideInInspector]
     public int TreasureHuntID;
-    [HideInInspector]
+    //[HideInInspector]
     public string TreasureHuntName;
     //[HideInInspector]
     public string TeamName;
     public ArrayList Riddles;
+
+    public bool riddleSolved = false;
+  
 }
