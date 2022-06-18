@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: 165}
+  m_AnchoredPosition: {x: 51, y: 570}
   m_SizeDelta: {x: 462.4, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8301064279999287409
@@ -425,7 +425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -127}
+  m_AnchoredPosition: {x: 58, y: 109}
   m_SizeDelta: {x: 503.56, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6838571166645460917
@@ -559,7 +559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: -660}
+  m_AnchoredPosition: {x: 51, y: -944}
   m_SizeDelta: {x: 462.4, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9103862311154364054
@@ -693,8 +693,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: 76}
-  m_SizeDelta: {x: 636.4, y: 122.2}
+  m_AnchoredPosition: {x: 197.43863, y: 414}
+  m_SizeDelta: {x: 343.5228, y: 111.7152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5098688464155569315
 CanvasRenderer:
@@ -1029,9 +1029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b88e6c01cb42648bb529327814f37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  riddles:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &7157882126242614557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,7 +1182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -314, y: 257}
+  m_AnchoredPosition: {x: -314, y: -30}
   m_SizeDelta: {x: 648.7, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6665681407131552245
@@ -1456,7 +1453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 338, y: -1144}
+  m_AnchoredPosition: {x: 384, y: -1451}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4354064567204529748
