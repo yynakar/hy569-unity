@@ -29,9 +29,9 @@ public class GetProgressAndPoints : MonoBehaviour
 
         string[] splitRaw = Response.Split('*');
 
-        GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
+        GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
         Debug.Log("Prog" + splitRaw[0]);
-        GameObject.Find("Dashboard(Clone)/UI/Canvas/Responses/Points").GetComponent<TextMeshProUGUI>().text ="Points:  "+ splitRaw[1];
+        GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Points").GetComponent<TextMeshProUGUI>().text ="Points:  "+ splitRaw[1];
         Debug.Log("Points" + splitRaw[1]);
         //GameObject.Find("Solved(Clone)/UI/Canvas/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
         //Debug.Log("Prog" + splitRaw[0]);
