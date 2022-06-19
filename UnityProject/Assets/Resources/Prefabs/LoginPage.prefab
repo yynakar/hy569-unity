@@ -1475,7 +1475,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3579208349362110485}
   - component: {fileID: 2684447134240448127}
-  - component: {fileID: 2326338102631034302}
   m_Layer: 0
   m_Name: LoginPage
   m_TagString: Untagged
@@ -1515,19 +1514,6 @@ MonoBehaviour:
   DebugText: {fileID: 5779207326270945334}
   Dashboard: {fileID: 6614356722446358637, guid: 915fa803e18f0994b8b3a862ddf9eb63, type: 3}
   BadAuthMesg: {fileID: 729913194707018546, guid: 56ab1af5a8d9b194d86c6faa4912b89f, type: 3}
---- !u!114 &2326338102631034302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3579208349362110486}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f384219dda447a44b10e409a68383b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ARFoundation: {fileID: 50682571507213171, guid: f166d0a4eeafeaf4a95f58cce2a2ab26, type: 3}
 --- !u!1 &3791438533786952402
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,7 +3307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 654, y: -1928.9999}
+  m_AnchoredPosition: {x: 538, y: -1916}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8998857190819356230
