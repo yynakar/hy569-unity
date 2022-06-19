@@ -58,17 +58,20 @@ public class Solved : MonoBehaviour
 
         if (GameObject.Find("DataManager").GetComponent<DataManagement>().riddleSolved == true)
         {
-            Instantiate(Resources.Load("Prefabs/btn_Proceed"), GameObject.Find("ScanRiddlePage(Clone)/UI/Canvas/").transform);
+            var f = Resources.Load("Prefabs/btn_Proceed") as GameObject;
+            Instantiate(f, GameObject.Find("ScanRiddlePage(Clone)/UI/Canvas/").transform);
             Instantiate(Resources.Load("Prefabs/GameObject1"));
 
-            debugText.text ="";
+            //debugText.text ="";
+            debugText.text = f.GetComponent<Button>() + "";
            // debugText2.text = "suc";
-            GameObject.Find("ScanRiddlePage(Clone)/UI/Canvas/btn_Proceed(Clone)").GetComponent<Button>().onClick.AddListener(() =>
-            {
-                Instantiate(Resources.Load("Prefabs/Solved"));
-                //na spawnnaretai s kalo simeio stin camera
-                gameObject.SetActive(false);
-            });
+            //f.GetComponent<Button>().onClick.AddListener(() =>
+            //{
+            //    debugText2.text = "MPIKA";
+            //    Instantiate(Resources.Load("Prefabs/Solved")as GameObject);
+            //    //na spawnnaretai s kalo simeio stin camera
+            //    gameObject.SetActive(false);
+            //});
         }
         else
         {

@@ -6,18 +6,17 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class GetProgressAndPoints : MonoBehaviour
-{
-    
+{    
     [NonSerialized]
     public string Response;
+
+    int riddlesSolved = 0, riddlesTotal = 0;
     
     IEnumerator ieGetProgressPoints()
     {
         WWWForm dataForm = new WWWForm();
         dataForm.AddField("team", GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName);
         dataForm.AddField("thunt", GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName);
-        Debug.Log("In ieGetProgressPoints: team= " + GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName);
-        Debug.Log("In ieGetProgressPoints: thunt= " + GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName);
         string uri = "https://arthunt.000webhostapp.com/SolvedRiddles.php";
 
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
@@ -26,9 +25,6 @@ public class GetProgressAndPoints : MonoBehaviour
         yield return webRequest.SendWebRequest();
 
         Response = webRequest.downloadHandler.text;
-        Debug.Log("res= " + Response);
-        Debug.Log("tou manage team=" + GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName);
-        Debug.Log("tou manage hunt=" + GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName);
 
         string[] splitRaw = Response.Split('*');
         switch (webRequest.result)
@@ -43,22 +39,13 @@ public class GetProgressAndPoints : MonoBehaviour
             case UnityWebRequest.Result.Success:
 
                 GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
-                Debug.Log("Prog" + splitRaw[0]);
+                var riddles = splitRaw[0].Split('/');
+                riddlesSolved = int.Parse(riddles[0]);
+                riddlesTotal = int.Parse(riddles[1]);
                 GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Points").GetComponent<TextMeshProUGUI>().text ="Points:  "+ splitRaw[1];
-                Debug.Log("Points" + splitRaw[1]);
-                //GameObject.Find("Solved(Clone)/UI/Canvas/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
-                //Debug.Log("Prog" + splitRaw[0]);
-                //GameObject.Find("Solved(Clone)/UI/Canvas/Responses/Points").GetComponent<TextMeshProUGUI>().text = "Points:  " + splitRaw[1];
-                //Debug.Log("Points" + splitRaw[1]);
+                WinningTeam();
                 break;
         }
-
-
-    }
-
-    void Start()
-    {
-      //  StartCoroutine(ieGetProgressPoints());
     }
 
     public void cGetProgressPoints()
@@ -69,6 +56,9 @@ public class GetProgressAndPoints : MonoBehaviour
 
     void WinningTeam()
     {
-
+        if (riddlesSolved == riddlesTotal)
+        {
+            Debug.Log("yay");
+        }
     }
 }

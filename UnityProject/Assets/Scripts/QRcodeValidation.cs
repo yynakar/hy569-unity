@@ -44,25 +44,29 @@ public class QRcodeValidation : MonoBehaviour
 
     void ImageChangedHandle(ARTrackedImagesChangedEventArgs imgChangedArgs)
     {
-        foreach (var item in imgChangedArgs.added)
+        foreach (var item in imgChangedArgs.updated)
         {
-            string thuntIDfirst = item.referenceImage.name;
 
-           // debugText.text = "thuntIDfirst";
-            var thuntID = thuntIDfirst.Replace("riddle_t", "").Split('_');
+            //if (item.referenceImage.name == "riddle_t14_r1")
+            //{
+                string thuntIDfirst = item.referenceImage.name;
 
-            if (int.Parse(thuntID[0]) == GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID)
-            {
-                   var riddleID = item.referenceImage.name.Replace("riddle_t", "").Replace(GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID + "", "")
-                .Replace("_r", "");
-                //debugText.text = "id=" + riddleID;
-                GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().cSolved(int.Parse(riddleID));
+                // debugText.text = "thuntIDfirst";
+                var thuntID = thuntIDfirst.Replace("riddle_t", "").Split('_');
+
+                if (int.Parse(thuntID[0]) == GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID)
+                {
+                    var riddleID = item.referenceImage.name.Replace("riddle_t", "").Replace(GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntID + "", "")
+                 .Replace("_r", "");
+                    //debugText.text = "id=" + riddleID;
+                    GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().cSolved(int.Parse(riddleID));
+                }
+                else
+                {
+                    GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().ValidateQR();
+                }
             }
-            else
-            {
-                GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().ValidateQR();
-            }
-        }
+       // }
     }
     //ti tha ginei an scananro alli eikona
     
