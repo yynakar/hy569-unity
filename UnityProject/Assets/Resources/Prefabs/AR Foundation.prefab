@@ -12,6 +12,10 @@ GameObject:
   - component: {fileID: 50682570814100293}
   - component: {fileID: 50682570814100282}
   - component: {fileID: 50682570814100289}
+  - component: {fileID: 1985308838}
+  - component: {fileID: 1985308841}
+  - component: {fileID: 3164334339275143479}
+  - component: {fileID: 5466085001355719888}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -73,9 +77,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SerializedLibrary: {fileID: 0}
+  m_SerializedLibrary: {fileID: 11400000, guid: 05809dfaf2099fd4ebe558abb7f3fb19, type: 2}
   m_MaxNumberOfMovingImages: 1
   m_TrackedImagePrefab: {fileID: 0}
+--- !u!114 &1985308838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50682570814100280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abf18931a7665b408868b98a9252261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CorrectRiddle: 0
+  CorrectMsg: {fileID: 0}
+  WrongMsg: {fileID: 0}
+  debugText: {fileID: 0}
+  debugText2: {fileID: 0}
+  debugText3: {fileID: 0}
+  prefab: {fileID: 0}
+  prefab2: {fileID: 0}
+--- !u!114 &1985308841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50682570814100280}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b71669be0502bc46a6625cc0c26e1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugText: {fileID: 0}
+  debugText2: {fileID: 0}
+--- !u!114 &3164334339275143479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50682570814100280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abf18931a7665b408868b98a9252261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CorrectRiddle: 0
+  CorrectMsg: {fileID: 0}
+  WrongMsg: {fileID: 0}
+  debugText: {fileID: 0}
+  debugText2: {fileID: 0}
+  debugText3: {fileID: 0}
+  prefab: {fileID: 0}
+  prefab2: {fileID: 0}
+--- !u!114 &5466085001355719888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50682570814100280}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b71669be0502bc46a6625cc0c26e1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugText: {fileID: 0}
+  debugText2: {fileID: 0}
 --- !u!1 &50682571507213171
 GameObject:
   m_ObjectHideFlags: 0
