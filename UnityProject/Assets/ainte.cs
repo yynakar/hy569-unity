@@ -10,6 +10,7 @@ public class ainte : MonoBehaviour
         GameObject.Find("Canvas/Text (TMP) (2)").GetComponent<TextMeshProUGUI>().text = "MPIKA";
             Instantiate(Resources.Load("Prefabs/Solved") as GameObject);
         //na spawnnaretai s kalo simeio stin camera
-        GameObject.Find("ScanRiddlePage(Cloned)").SetActive(false);
+        gameObject.transform.parent.gameObject.SetActive(false);
+       // GameObject.Find("ScanRiddlePage(Cloned)").SetActive(false);
     }
 }
