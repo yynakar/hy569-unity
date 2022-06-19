@@ -59,11 +59,13 @@ public class Solved : MonoBehaviour
         if (GameObject.Find("DataManager").GetComponent<DataManagement>().riddleSolved == true)
         {
             Instantiate(Resources.Load("Prefabs/btn_Proceed"), GameObject.Find("ScanRiddlePage(Clone)/UI/Canvas/").transform);
+            Instantiate(Resources.Load("Prefabs/GameObject1"));
 
+            debugText.text ="";
             GameObject.Find("ScanRiddlePage(Clone)/UI/Canvas/btn_Proceed(Clone)").GetComponent<Button>().onClick.AddListener(() =>
             {
                 Instantiate(Resources.Load("Prefabs/Solved"));
-
+                //na spawnnaretai s kalo simeio stin camera
                 gameObject.SetActive(false);
             });
         }
