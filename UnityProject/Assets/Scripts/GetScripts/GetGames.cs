@@ -1,11 +1,14 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class GetGames : MonoBehaviour
 {
     public GameObject GameContainer;
     public GameObject GameTemplate;
+    public TMP_Text debugText, debugText2;
 
     string loginResponseUsername;
 
@@ -15,7 +18,9 @@ public class GetGames : MonoBehaviour
         loginResponseUsername = GameObject.Find("DataManager").GetComponent<DataManagement>().LoginResponseUsername;
 
        StartCoroutine(GetRequest("https://arthunt.000webhostapp.com/Game.php?username="+ loginResponseUsername));
-      
+        //debugText = GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>();
+        //debugText2 = GameObject.Find("Canvas/Text (TMP) (1)").GetComponent<TextMeshProUGUI>();
+
     }
 
     IEnumerator GetRequest(string uri)
@@ -40,17 +45,30 @@ public class GetGames : MonoBehaviour
                     string rawResponse = webRequest.downloadHandler.text;
                    
                     string[] games = rawResponse.Split('*');
-                    foreach(string i in games)
+
+                    if (games.Length==1)
                     {
-                        if (i != "")
-                        {
-                            GameObject ga = Instantiate(GameTemplate,GameContainer.transform);
-                            ga.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
-                            ga.GetComponent<GameName>().game.text = i;
-                            ga.name = i;
-                        }
+                        GameTemplate.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>().text = "There are no available games";
+                        GameTemplate.transform.Find("Button").gameObject.SetActive(false);
+                        break;
                     }
-                    GameTemplate.SetActive(false);
+                    else
+                    {
+                       // debugText2.text = "edo" +games.Length;
+                        //debugText2.text = "edo" +games.Length;
+                        foreach (string i in games)
+                        {
+                            if (i != "")
+                            {
+                                GameObject ga = Instantiate(GameTemplate,GameContainer.transform);
+                                ga.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
+                                ga.GetComponent<GameName>().game.text = i;
+                                ga.name = i;
+                            }
+                        }
+                        GameTemplate.SetActive(false);
+
+                    }
                     break;
             }
         }
