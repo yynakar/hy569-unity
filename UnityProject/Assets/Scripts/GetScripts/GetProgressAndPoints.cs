@@ -26,23 +26,49 @@ public class GetProgressAndPoints : MonoBehaviour
         yield return webRequest.SendWebRequest();
 
         Response = webRequest.downloadHandler.text;
+        Debug.Log("res= " + Response);
+        Debug.Log("tou manage team=" + GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName);
+        Debug.Log("tou manage hunt=" + GameObject.Find("DataManager").GetComponent<DataManagement>().TreasureHuntName);
 
         string[] splitRaw = Response.Split('*');
+        switch (webRequest.result)
+        {
+            case UnityWebRequest.Result.ConnectionError:
+            case UnityWebRequest.Result.DataProcessingError:
+                Debug.LogError(UnityWebRequest.Result.DataProcessingError);
+                break;
+            case UnityWebRequest.Result.ProtocolError:
+                Debug.LogError(UnityWebRequest.Result.ProtocolError);
+                break;
+            case UnityWebRequest.Result.Success:
 
-        GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
-        Debug.Log("Prog" + splitRaw[0]);
-        GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Points").GetComponent<TextMeshProUGUI>().text ="Points:  "+ splitRaw[1];
-        Debug.Log("Points" + splitRaw[1]);
-        //GameObject.Find("Solved(Clone)/UI/Canvas/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
-        //Debug.Log("Prog" + splitRaw[0]);
-        //GameObject.Find("Solved(Clone)/UI/Canvas/Responses/Points").GetComponent<TextMeshProUGUI>().text = "Points:  " + splitRaw[1];
-        //Debug.Log("Points" + splitRaw[1]);
+                GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
+                Debug.Log("Prog" + splitRaw[0]);
+                GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Points").GetComponent<TextMeshProUGUI>().text ="Points:  "+ splitRaw[1];
+                Debug.Log("Points" + splitRaw[1]);
+                //GameObject.Find("Solved(Clone)/UI/Canvas/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
+                //Debug.Log("Prog" + splitRaw[0]);
+                //GameObject.Find("Solved(Clone)/UI/Canvas/Responses/Points").GetComponent<TextMeshProUGUI>().text = "Points:  " + splitRaw[1];
+                //Debug.Log("Points" + splitRaw[1]);
+                break;
+        }
 
 
     }
 
     void Start()
     {
+      //  StartCoroutine(ieGetProgressPoints());
+    }
+
+    public void cGetProgressPoints()
+    {
+
         StartCoroutine(ieGetProgressPoints());
+    }
+
+    void WinningTeam()
+    {
+
     }
 }

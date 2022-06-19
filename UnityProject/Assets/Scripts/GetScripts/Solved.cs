@@ -10,7 +10,7 @@ public class Solved : MonoBehaviour
     public TMP_Text debugText2;
     private void Start()
     {
-        debugText = GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>();
+        debugText = GameObject.Find("Canvas/Text (TMP) (2)").GetComponent<TextMeshProUGUI>();
         debugText2 = GameObject.Find("Canvas/Text (TMP) (1)").GetComponent<TextMeshProUGUI>();
     }
     public void cSolved(int i)
@@ -62,6 +62,7 @@ public class Solved : MonoBehaviour
             Instantiate(Resources.Load("Prefabs/GameObject1"));
 
             debugText.text ="";
+           // debugText2.text = "suc";
             GameObject.Find("ScanRiddlePage(Clone)/UI/Canvas/btn_Proceed(Clone)").GetComponent<Button>().onClick.AddListener(() =>
             {
                 Instantiate(Resources.Load("Prefabs/Solved"));
@@ -71,6 +72,7 @@ public class Solved : MonoBehaviour
         }
         else
         {
+           // debugText2.text = "fail";
             Instantiate(Resources.Load("Prefabs/RiddleScanFailed"));
         }
     }

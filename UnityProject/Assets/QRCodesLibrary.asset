@@ -16,22 +16,22 @@ MonoBehaviour:
   m_GuidHigh: 3662561249504097184
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5749424608940591646
-      m_GuidHigh: 16771171456893512089
+      m_GuidLow: 4846540381414513725
+      m_GuidHigh: 7717045686443368087
     m_SerializedTextureGuid:
-      m_GuidLow: 4738998150146575252
-      m_GuidHigh: 3916295841072533240
+      m_GuidLow: 7742949440818767064
+      m_GuidHigh: 2984217772237034731
     m_Size: {x: 0.01, y: 0.01}
     m_SpecifySize: 1
-    m_Name: riddle_t1_r2
+    m_Name: riddle_t14_r1
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
-      m_GuidLow: 5560334975135753101
-      m_GuidHigh: 1327474426036756617
+      m_GuidLow: 5564227482074367410
+      m_GuidHigh: 14898598096041547699
     m_SerializedTextureGuid:
-      m_GuidLow: 6887205416852175674
-      m_GuidHigh: 11840432374727270459
+      m_GuidLow: 11818610668114926359
+      m_GuidHigh: 8187667107165318521
     m_Size: {x: 0.01, y: 0.01}
     m_SpecifySize: 1
-    m_Name: riddle_t1_r3
+    m_Name: riddle_t14_r2
     m_Texture: {fileID: 0}
