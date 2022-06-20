@@ -167,7 +167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -406, y: 19.999756}
+  m_AnchoredPosition: {x: -406, y: -57.000206}
   m_SizeDelta: {x: 462.4, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2552004067951129620
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Points:  10'
+  m_text: 'Points:  0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6eae205d987c90c408385977e014590d, type: 2}
   m_sharedMaterial: {fileID: -632280744609436841, guid: 6eae205d987c90c408385977e014590d, type: 2}
@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 4489296923447153934}
   - component: {fileID: 4783858024043951514}
   - component: {fileID: 5667656635021954937}
+  - component: {fileID: 2689919101035470910}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -457,6 +458,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b88e6c01cb42648bb529327814f37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2689919101035470910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134542363522543208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b88926b785ab14abe42b0e431f3410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dashboard: {fileID: 0}
 --- !u!1 &2156426969471298486
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +561,6 @@ GameObject:
   - component: {fileID: 3629957759945295867}
   - component: {fileID: 5002958542124786906}
   - component: {fileID: 3189828351975157511}
-  - component: {fileID: 5504323800067532130}
   - component: {fileID: 6846925721608389312}
   m_Layer: 0
   m_Name: Solved
@@ -598,18 +611,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   THunt: {fileID: 1495379035242977494}
   Team: {fileID: 2775880838128739065}
---- !u!114 &5504323800067532130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3629957759945295864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6690a84241ba9a6408b12d31103fab21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6846925721608389312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,7 +657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129.34346, y: 338.00305}
+  m_AnchoredPosition: {x: 129.34346, y: 381}
   m_SizeDelta: {x: 583.087, y: 139.4914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4119076106786263362
@@ -790,7 +791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: -893}
+  m_AnchoredPosition: {x: 51, y: -970}
   m_SizeDelta: {x: 462.4, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &125152222181364599
@@ -821,7 +822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1/3
+  m_text: Prog
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6eae205d987c90c408385977e014590d, type: 2}
   m_sharedMaterial: {fileID: -632280744609436841, guid: 6eae205d987c90c408385977e014590d, type: 2}
@@ -925,7 +926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -171.485}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 593, y: -2214}
+  m_AnchoredPosition: {x: 593, y: -2246}
   m_SizeDelta: {x: 103.8432, y: 57.1854}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &5028947877838077220
@@ -1010,9 +1011,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4489296923447153934}
-        m_TargetAssemblyTypeName: AppControl, Assembly-CSharp
-        m_MethodName: QuitApp
+      - m_Target: {fileID: 2689919101035470910}
+        m_TargetAssemblyTypeName: GoDashboard, Assembly-CSharp
+        m_MethodName: GoToDashboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1056,7 +1057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -229}
+  m_AnchoredPosition: {x: 30, y: -191}
   m_SizeDelta: {x: 462.4, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2381480611814908500
@@ -1114,8 +1115,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1190,7 +1191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: 372}
+  m_AnchoredPosition: {x: 51, y: 446}
   m_SizeDelta: {x: 462.4, y: 122.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &925637309349375376
@@ -1221,7 +1222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You solved the riddle!
+  m_text: That is correct!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6eae205d987c90c408385977e014590d, type: 2}
   m_sharedMaterial: {fileID: -632280744609436841, guid: 6eae205d987c90c408385977e014590d, type: 2}
