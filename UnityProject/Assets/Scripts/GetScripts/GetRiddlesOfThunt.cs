@@ -63,18 +63,14 @@ public class GetRiddlesOfThunt : MonoBehaviour
                         riddles.Add(riddle);
                     }
                 }
-                
-                //foreach(Riddle v in riddles)
-                //{
-                //    Debug.Log(v.ToString());
-                //}
+               
                 GameObject.Find("DataManager").GetComponent<DataManagement>().Riddles = riddles;
                 Riddle r = (Riddle)riddles[0];
                 string FirstRiddle = r.getText();
                 Debug.Log("First Text" + FirstRiddle);
                 GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Riddle").GetComponent<TextMeshProUGUI>().text = FirstRiddle;
-                //string FirstInfo = r.getInfo();
-                //GameObject.Find("Solved(Clone)/UI/Canvas/Responses/InfoText").GetComponent<TextMeshProUGUI>().text = FirstInfo;
+                string FirstInfo = r.getInfo();
+                GameObject.Find("Solved(Clone)/UI/Canvas/BluePanel/Responses/InfoText").GetComponent<TextMeshProUGUI>().text = FirstInfo;
 
                 break;
         }

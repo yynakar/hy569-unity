@@ -39,10 +39,13 @@ public class GetProgressAndPoints : MonoBehaviour
             case UnityWebRequest.Result.Success:
 
                 GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
+                GameObject.Find("Solved(Clone)/UI/Canvas/BluePanel/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
+
                 var riddles = splitRaw[0].Split('/');
                 riddlesSolved = int.Parse(riddles[0]);
                 riddlesTotal = int.Parse(riddles[1]);
                 GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Points").GetComponent<TextMeshProUGUI>().text ="Points:  "+ splitRaw[1];
+                GameObject.Find("Solved(Clone)/UI/Canvas/BluePanel/Responses/Points").GetComponent<TextMeshProUGUI>().text = "Points:  " + splitRaw[1];
                 WinningTeam();
                 break;
         }
