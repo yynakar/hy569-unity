@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 5002958542124786906}
   - component: {fileID: 3189828351975157511}
   - component: {fileID: 5504323800067532130}
-  - component: {fileID: 4008750813105900440}
+  - component: {fileID: 6846925721608389312}
   m_Layer: 0
   m_Name: Solved
   m_TagString: Untagged
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6690a84241ba9a6408b12d31103fab21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4008750813105900440
+--- !u!114 &6846925721608389312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3629957759945295864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b88e6c01cb42648bb529327814f37d, type: 3}
+  m_Script: {fileID: 11500000, guid: c45e95412843e664086043e44f107feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4955403468879115332
