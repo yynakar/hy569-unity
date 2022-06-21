@@ -12,6 +12,7 @@ public class GoDashboard : MonoBehaviour
     public ArrayList riddles;
     public void GoToDashboard()
     {
+        
         Instantiate(Resources.Load("Prefabs/Dashboard"));
 
         riddles = GameObject.Find("DataManager").GetComponent<DataManagement>().Riddles;
@@ -24,8 +25,11 @@ public class GoDashboard : MonoBehaviour
         GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Riddle").GetComponent<TextMeshProUGUI>().text = FirstRiddle;
         string FirstInfo = r.getInfo();
         GameObject.Find("Solved(Clone)/UI/Canvas/BluePanel/Responses/InfoText").GetComponent<TextMeshProUGUI>().text = FirstInfo;
+        GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Team Name").GetComponent<TextMeshProUGUI>().text = GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName;
 
-
+        
 
     }
+   
 }
+
