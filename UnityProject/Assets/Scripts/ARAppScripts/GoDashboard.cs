@@ -43,22 +43,23 @@ public class GoDashboard : MonoBehaviour
         UnityWebRequest webRequest = UnityWebRequest.Post(uri, dataForm);
         webRequest.chunkedTransfer = false;
 
-        GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>().text = "EDO";
         yield return webRequest.SendWebRequest();
 
         string Response = webRequest.downloadHandler.text;
 
         string[] splitRaw = Response.Split('*');
+        GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>().text = "EDO";
         switch (webRequest.result)
         {
             case UnityWebRequest.Result.ConnectionError:
             case UnityWebRequest.Result.DataProcessingError:
-                Debug.LogError(UnityWebRequest.Result.DataProcessingError);
+                GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>().text = "" +UnityWebRequest.Result.DataProcessingError;
                 break;
             case UnityWebRequest.Result.ProtocolError:
-                Debug.LogError(UnityWebRequest.Result.ProtocolError);
+                GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>().text = "" + UnityWebRequest.Result.ProtocolError;
                 break;
             case UnityWebRequest.Result.Success:
+                GameObject.Find("Canvas/Text (TMP)").GetComponent<TextMeshProUGUI>().text = "" + UnityWebRequest.Result.Success;
                 GameObject.Find("Canvas/Text (TMP) (2)").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
 
                 //GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Progress").GetComponent<TextMeshProUGUI>().text = splitRaw[0];
