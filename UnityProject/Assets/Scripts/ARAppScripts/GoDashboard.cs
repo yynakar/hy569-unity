@@ -8,7 +8,7 @@ public class GoDashboard : MonoBehaviour
     // public GameObject ARFoundation;
     public void GoToDashboard()
     {
-        Instantiate(Dashboard);
-        gameObject.SetActive(false);
+        Instantiate(Resources.Load("Prefabs/Dashboard"));
+        //gameObject.SetActive(false);
     }
 }
