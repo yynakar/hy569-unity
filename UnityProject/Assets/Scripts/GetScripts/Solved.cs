@@ -49,8 +49,6 @@ public class Solved : MonoBehaviour
                     ValidateQR();
                     break;
             }
-
-
         }
     }
     public void ValidateQR()
@@ -62,20 +60,10 @@ public class Solved : MonoBehaviour
             Instantiate(f, GameObject.Find("ScanRiddlePage(Clone)/UI/Canvas/").transform);
             Instantiate(Resources.Load("Prefabs/GameObject1"));
 
-            //debugText.text ="";
-            debugText.text = f.GetComponent<Button>() + "";
-           // debugText2.text = "suc";
-            //f.GetComponent<Button>().onClick.AddListener(() =>
-            //{
-            //    debugText2.text = "MPIKA";
-            //    Instantiate(Resources.Load("Prefabs/Solved")as GameObject);
-            //    //na spawnnaretai s kalo simeio stin camera
-            //    gameObject.SetActive(false);
-            //});
+            //debugText.text = f.GetComponent<Button>() + "";
         }
         else
         {
-           // debugText2.text = "fail";
             Instantiate(Resources.Load("Prefabs/RiddleScanFailed"));
         }
     }

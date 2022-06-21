@@ -59,7 +59,7 @@ public class RuntimeQRCodes : MonoBehaviour
             get => m_Width;
             set => m_Width = value;
         }
-        public AddReferenceImageJobState jobState { get; set; }
+       // public AddReferenceImageJobState jobState { get; set; }
     }
     [SerializeField, Tooltip("The set of images to add to the image library at runtime")]
     ImageData[] m_Images;

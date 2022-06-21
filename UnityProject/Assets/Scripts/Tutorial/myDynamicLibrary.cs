@@ -50,7 +50,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 set => m_Width = value;
             }
 
-            public AddReferenceImageJobState jobState { get; set; }
+           // public AddReferenceImageJobState jobState { get; set; }
         }
 
         //public ImageData[] m_Images; 
@@ -287,12 +287,12 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 // useful if you want to know when the image has been added to the library since it may
                 // take several frames.
                 //image.jobstate = mutablelibrary.scheduleaddimagewithvalidationjob(image.texture, image.name, image.width);
-                image.jobState = mutableLibrary.ScheduleAddImageWithValidationJob(image.texture, image.name, image.width);
+               // image.jobState = mutableLibrary.ScheduleAddImageWithValidationJob(image.texture, image.name, image.width);
                 
-                while (!image.jobState.jobHandle.IsCompleted)
-                {
-                    Debug.Log("Image added");
-                }
+                //while (!image.jobState.jobHandle.IsCompleted)
+                //{
+                //    Debug.Log("Image added");
+                //}
             }
             //m_State = State.AddingImages;
 
