@@ -562,6 +562,7 @@ GameObject:
   - component: {fileID: 5002958542124786906}
   - component: {fileID: 3189828351975157511}
   - component: {fileID: 6846925721608389312}
+  - component: {fileID: 620043662681211772}
   m_Layer: 0
   m_Name: Solved
   m_TagString: Untagged
@@ -623,6 +624,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45e95412843e664086043e44f107feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &620043662681211772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3629957759945295864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda84e3af867605409a1284a6db8e96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Progress: {fileID: 2725320171853640582}
 --- !u!1 &4955403468879115332
 GameObject:
   m_ObjectHideFlags: 0
