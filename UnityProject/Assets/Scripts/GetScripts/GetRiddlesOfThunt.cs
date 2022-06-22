@@ -69,8 +69,8 @@ public class GetRiddlesOfThunt : MonoBehaviour
                 string FirstRiddle = r.getText();
                 Debug.Log("First Text" + FirstRiddle);
                 GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Riddle").GetComponent<TextMeshProUGUI>().text = FirstRiddle;
-                //string FirstInfo = r.getInfo();
-                //GameObject.Find("Solved(Clone)/UI/Canvas/BluePanel/Responses/InfoText").GetComponent<TextMeshProUGUI>().text = FirstInfo;
+                string FirstInfo = r.getInfo();
+                GameObject.Find("Solved(Clone)/UI/Canvas/BluePanel/Responses/InfoText").GetComponent<TextMeshProUGUI>().text = FirstInfo;
 
                 break;
         }
