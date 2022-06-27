@@ -13,7 +13,7 @@ public class DataManagement : MonoBehaviour
     //[HideInInspector]
     public string TeamName;
     public ArrayList Riddles;
-
+    public string photoName;
     public bool riddleSolved;
   
 }

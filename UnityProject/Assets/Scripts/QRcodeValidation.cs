@@ -50,8 +50,8 @@ public class QRcodeValidation : MonoBehaviour
         foreach (var item in imgChangedArgs.updated)
         {
 
-            //if (item.referenceImage.name == "riddle_t14_r1")
-            //{
+            if (item.referenceImage.name == GameObject.Find("DataManager").GetComponent<DataManagement>().photoName)
+            {
                 string thuntIDfirst = item.referenceImage.name;
 
                 // debugText.text = "thuntIDfirst";
@@ -74,7 +74,10 @@ public class QRcodeValidation : MonoBehaviour
                 GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Riddle").GetComponent<TextMeshProUGUI>().text = FirstRiddle;
                 string FirstInfo = r.getInfo();
                 GameObject.Find("Solved(Clone)/UI/Canvas/BluePanel/Responses/InfoText").GetComponent<TextMeshProUGUI>().text = FirstInfo;
-                
+
+                //isws prepei allagi
+                string FirstPhoto = r.getPhoto();
+                GameObject.Find("DataManager").GetComponent<DataManagement>().photoName = FirstPhoto;//isws prepei allagi
                 gameObject.transform.parent.gameObject.SetActive(false);
                 }
                 else
@@ -82,7 +85,7 @@ public class QRcodeValidation : MonoBehaviour
                     GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().ValidateQR();
                 }
             }
-       // }
+        }
     }
     //ti tha ginei an scananro alli eikona
     
