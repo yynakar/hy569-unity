@@ -52,13 +52,13 @@ public class GetRiddlesOfThunt : MonoBehaviour
                 string[] splitRaw = rawResponse.Split('*');
                 Riddle riddle;
                 //Debug.Log(rawResponse);
-                for (int i = 0; i < splitRaw.Length - 4; i = i + 4)
+                for (int i = 0; i < splitRaw.Length - 5; i = i + 5)
                 {
 
                     if (splitRaw[i] != "")
                     {
 
-                        riddle = new Riddle(splitRaw[i], splitRaw[i + 1], splitRaw[i + 2], splitRaw[i + 3]);
+                        riddle = new Riddle(splitRaw[i], splitRaw[i + 1], splitRaw[i + 2], splitRaw[i + 3],splitRaw[i+4]);
                         
                         riddles.Add(riddle);
                     }
