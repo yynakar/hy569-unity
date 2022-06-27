@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.XR.ARFoundation;
+using System.Collections;
 
 public class QRcodeValidation : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class QRcodeValidation : MonoBehaviour
     [Tooltip("to be replaced")]
     GameObject prefab2;
 
+
+    public ArrayList riddles;
     void Awake()
     {
         m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
@@ -60,6 +63,19 @@ public class QRcodeValidation : MonoBehaviour
                  .Replace("_r", "");
                     //debugText.text = "id=" + riddleID;
                     GameObject.Find("ScanRiddlePage(Clone)").GetComponent<Solved>().cSolved(int.Parse(riddleID));
+                    GameObject.Find("Dashboard(Clone)").GetComponent<GetProgressAndPoints>().cGetProgressPoints();
+                riddles = GameObject.Find("DataManager").GetComponent<DataManagement>().Riddles;
+                riddles.RemoveAt(0);
+
+                GameObject.Find("DataManager").GetComponent<DataManagement>().Riddles = riddles;
+                Riddle r = (Riddle)riddles[0];
+                string FirstRiddle = r.getText();
+                Debug.Log("First Text" + FirstRiddle);
+                GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Riddle").GetComponent<TextMeshProUGUI>().text = FirstRiddle;
+                string FirstInfo = r.getInfo();
+                GameObject.Find("Solved(Clone)/UI/Canvas/BluePanel/Responses/InfoText").GetComponent<TextMeshProUGUI>().text = FirstInfo;
+                GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Team Name").GetComponent<TextMeshProUGUI>().text = GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName;
+                gameObject.transform.parent.gameObject.SetActive(false);
                 }
                 else
                 {
