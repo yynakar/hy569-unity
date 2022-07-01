@@ -15,6 +15,8 @@ public class GoDashboard : MonoBehaviour
 
         GameObject.Find("Solved(Clone)").SetActive(false);
         Instantiate(Resources.Load("Prefabs/Dashboard"));
+        GameObject.Find("ScanRiddlePage(Clone)").SetActive(false);
+        GameObject.Find("Dashboard(Clone)").GetComponent<GetProgressAndPoints>().cGetProgressPoints();
         GameObject.Find("Dashboard(Clone)/UI/Canvas/BluePanel/Responses/Team Name").GetComponent<TextMeshProUGUI>().text = GameObject.Find("DataManager").GetComponent<DataManagement>().TeamName;
         
     }

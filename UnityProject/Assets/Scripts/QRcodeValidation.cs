@@ -77,7 +77,8 @@ public class QRcodeValidation : MonoBehaviour
 
                 //isws prepei allagi
                 string FirstPhoto = r.getPhoto();
-                GameObject.Find("DataManager").GetComponent<DataManagement>().photoName = FirstPhoto;//isws prepei allagi
+                GameObject.Find("DataManager").GetComponent<DataManagement>().photoName = FirstPhoto;
+                    //isws prepei allagi
                 gameObject.transform.parent.gameObject.SetActive(false);
                 }
                 else
